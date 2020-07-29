@@ -35,15 +35,14 @@
         "brace-style": "error",
         "indent": [
             "error",
-            3
+            4
         ],
         "quotes": [
             "error",
             "single"
         ],
         "semi": [
-            "error",
-            "always"
+            "off"
         ]
     }
 }
