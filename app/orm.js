@@ -5,7 +5,7 @@ class DB {
         this.connection = connectDB();
     }
 
-    close() {
+    closeDB() {
         return close_db(this.connection);
     }
 
