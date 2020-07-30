@@ -6,7 +6,7 @@ class DB {
     }
 
     closeDB() {
-        return close_db(this.connection);
+        return closeDB(this.connection);
     }
 
     query(sql, args) {
