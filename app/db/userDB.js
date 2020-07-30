@@ -45,8 +45,6 @@ const userSchema = new Schema(
             type: Number
         }
     }
-
-
 )
 
 const Users = mongoose.model("User", userSchema)
