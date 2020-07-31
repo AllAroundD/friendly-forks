@@ -6,6 +6,10 @@ USE friendlyforks_db;
 
 CREATE TABLE users (
 id INTEGER AUTO_INCREMENT NOT NULL,
+type VARCHAR(255),
+password VARCHAR (255),
+session VARCHAR (255),
+authID VARCHAR (255),
 firstName VARCHAR(255),
 lastName VARCHAR(255),
 profilePicture VARCHAR(255),
