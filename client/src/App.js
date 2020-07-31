@@ -1,21 +1,32 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
-class App extends Component {
-  render() {
-    return (
+import { GlobalStore } from "./components/GlobalStore";
+import NavBar from './components/NavBar';
+
+import RegisterPage from './components/RegisterPage';
+// import LoginPage from './components/LoginPage';
+// import LogoutPage from './components/LogoutPage';
+// import Footer from './components/Footer';
+
+function App() {
+  return (
+    <GlobalStore> {/* provides common elements across components */}
+    <Router>
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Friendly Forks</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+          <NavBar />
+          <div class="container">
+
+            <Route exact path="/register" component={RegisterPage} />
+            {/* <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/logout" component={LogoutPage} /> */}
+          </div>
+
+          {/* <Footer /> */}
       </div>
-    );
-  }
+    </Router>
+    </GlobalStore>
+  );
 }
 
 export default App;
