@@ -9,24 +9,31 @@ function OAuth( props ){
         // listen for message from popup window
         window.addEventListener('message', function(e) {
             // only listen to JSON messages, ignore rest
-            if( !(e && e.data && typeof(e.data)==='string' && e.data.substr(0,1)==='{' && e.data.substr(-1,1)==='}') ) 
+            if( !(e && e.data && typeof(e.data)==='string' && e.data.substr(0,1)==='{' && e.data.substr(-1,1)==='}') ) {
                 return;
+            }
 
             const loginData = JSON.parse(e.data);
-            console.log(`<< from popup window, received:`, loginData);
-            if( oAuthWindow ) oAuthWindow.close();
+            console.log('<< from popup window, received:', loginData);
+            if( oAuthWindow ) {
+                oAuthWindow.close();
+            }
             // pass back the login info
-            if( props.loginComplete ) props.loginComplete(loginData);
+            if( props.loginComplete ) {
+                props.loginComplete(loginData);
+            }
         } , false);
     }, [] );
-     
-    /* 
+
+    /*
     >> everestapp.herokuapp.com/oauth/twitter -> [passport plugin] -> api.twitter.com/oauth/....
     << everestapp.herokuapp.com/oauth/twitter/callback with user-name + thumnbail + access-token
        JSON string with information that we can pass to the parent window
     */
     function openOAuth( client ) {
-        if (oAuthPending) return;
+        if (oAuthPending) {
+            return;
+        }
 
         // get the popup window ready (center) and open!
         const width = 600, height = 600
@@ -34,8 +41,8 @@ function OAuth( props ){
         const top = (window.innerHeight / 2) - (height / 2)
         const url = `${API_URL}/oauth/${client}`
         console.log( `[openOAuth] opening url: ${url}`)
-        oAuthWindow =  window.open(url, '',       
-          `toolbar=no, location=no, directories=no, status=no, menubar=no, 
+        oAuthWindow = window.open(url, '',
+            `toolbar=no, location=no, directories=no, status=no, menubar=no, 
           scrollbars=no, resizable=no, copyhistory=no, width=${width}, 
           height=${height}, top=${top}, left=${left}` );
 
@@ -46,15 +53,15 @@ function OAuth( props ){
 
     function checkPopup() {
         const check = setInterval(() => {
-          if (!oAuthWindow || oAuthWindow.closed || oAuthWindow.closed === undefined) {
-            clearInterval(check)
-            oAuthPending = false;
-          }
+            if (!oAuthWindow || oAuthWindow.closed || oAuthWindow.closed === undefined) {
+                clearInterval(check)
+                oAuthPending = false;
+            }
         }, 1000)
     }
     const icons = {
-        facebook: "fa-facebook-square",
-        google: "fa-google-plus-square"
+        facebook: 'fa-facebook-square',
+        google: 'fa-google-plus-square'
     }
     return (
         <div class="card">
