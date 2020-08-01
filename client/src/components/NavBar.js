@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { useGlobalStore } from "./GlobalStore";
 import { Redirect } from 'react-router-dom';
 import API from "./API";

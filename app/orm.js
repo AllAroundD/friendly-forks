@@ -61,6 +61,18 @@ class DB {
         })
     }
      
+    addEvent(eventData) {
+        const queryString = `INSERT INTO events (eventDate, availableSeats, eventNotes, restrictions)
+        VALUES ('${eventData.eventDate}', '${eventData.availableSeats}', '${eventData.eventNotes}', '${restrictions}')`
+        console.log(`[addEvent] queryString`, queryString);
+        return new Promise ((resolve, reject) => {
+            this.connection.query(queryString, function (err, rows) {
+                if (err) reject (err)
+                resolve(rows)
+            })
+        })
+    }
+
     removeOne(tableName, column, value) {
         return new Promise((resolve, reject) => {
             this.connection.query("DELETE FROM ?? WHERE ?? = ?", [tableName, column, value], function (err, rows) {
