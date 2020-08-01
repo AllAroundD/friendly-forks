@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useGlobalStore } from './GlobalStore';
 import { Redirect } from 'react-router-dom';
-import API from './API';
+import API from './API'
 
 let showTimeout,serverInterval;
 let prevLocation;
