@@ -1,13 +1,13 @@
-// simple wrapper around fetch to give session & do the JSON after
+// simple wrapper around fetch to give session & do the JSON after 
 function get( url ){
-    return fetch( url,
+    return fetch( url, 
         { headers: { 'Session': localStorage.session ? localStorage.session : '' } })
         .then( result=>result.json() )
 }
 
 function post( url, userData ){
-    return fetch( url,
-        { method: 'post',
+    return fetch( url, 
+        {   method: 'post',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json',
