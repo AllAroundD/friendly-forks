@@ -1,17 +1,20 @@
-const orm = require("../orm")
+const orm = require("../config/orm");
+const DB = require("../config/orm");
 
-class userModel {
-    async addUser(type, password, authID) {
-        //user is an object
+class UserModel {
+    async getUserByID(userID) {
         let db = new orm("friendlyforks_db");
-        await db.insertOne("users", user);
+        let user = await db.selectSome("users", "id", userID);
         await db.close();
+        return user;
     }
 
-    // async updateUser(){
-    //     let db=new orm("friendlyforks_db")
-    //     await db.updateOne("", )
-    //     await db.close()
-
-    // }
+    async getUserByAuthID(authID) {
+        let db = new orm("friendlyforks_bd");
+        let user = await db.selectSome("users", "auth_id", authID);
+        await db.close();
+        return user[0].id;
+    }
 }
+
+module.exports = UserModel;
