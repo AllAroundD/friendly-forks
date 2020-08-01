@@ -61,9 +61,9 @@ class DB {
         })
     }
      
-    removeOne(tableName, condition) {
+    removeOne(tableName, column, value) {
         return new Promise((resolve, reject) => {
-            this.connection.query("DELETE FROM ?? WHERE ?", [tableName, condition], function (err, rows) {
+            this.connection.query("DELETE FROM ?? WHERE ?? = ?", [tableName, column, value], function (err, rows) {
                 if (err) reject(err)
                 resolve(rows)
             })
