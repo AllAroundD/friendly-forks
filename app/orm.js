@@ -64,8 +64,8 @@ class DB {
     }
      
     addEvent(eventData) {
-        const queryString = `INSERT INTO events (eventDate, availableSeats, eventNotes, restrictions)
-        VALUES ('${eventData.eventDate}', '${eventData.availableSeats}', '${eventData.eventNotes}', '${restrictions}')`
+        const queryString = `INSERT INTO events (eventDate, type, availableSeats, eventNotes, restrictions)
+        VALUES ('${eventData.eventDate}', '${eventData.type}', '${eventData.availableSeats}', '${eventData.eventNotes}', '${restrictions}')`
         console.log(`[addEvent] queryString`, queryString);
         return new Promise ((resolve, reject) => {
             this.connection.query(queryString, function (err, rows) {
@@ -76,7 +76,7 @@ class DB {
     }
 
     updateEvent(eventData) {
-        const queryString = `UPDATE events SET eventDate=${eventData.eventDate}, availableSeats=${eventData.availableSeats}, eventNotes=${eventData.restrictions})`
+        const queryString = `UPDATE events SET eventDate=${eventData.eventDate}, type=${eventData.type}, availableSeats=${eventData.availableSeats}, eventNotes=${eventData.restrictions})`
         console.log(`[updateEvent] queryString`, queryString);
         return new Promise ((resolve, reject) => {
             this.connection.query(queryString, function (err, rows) {

@@ -51,7 +51,6 @@ class EventModel {
         let events = await db.selectAll("events")
         await db.close();
         return events;
-
     }
 
     async getEventByDate(eventDate){
@@ -59,8 +58,6 @@ class EventModel {
         let events = await db.selectSome("events", "events.eventDate", eventDate )
         await db.close();
         return events;
-
-
     }
 
     async getEventbySeat(seatNumber){
@@ -78,15 +75,6 @@ class EventModel {
         await db.close();
         return events;
     }
-
-
-
-
-
-    
-
-
-
 
 }
 
