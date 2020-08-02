@@ -11,16 +11,16 @@ class UserModel {
 
     async getUserByAuthID(authID) {
         let db = new orm("friendlyforks_db");
-        let user = await db.selectSome("users", "auth_id", authID);
+        let user = await db.selectSome("users", "authID", authID);
         await db.close();
         return user[0].id;
     }
   
     async removeUser(authID) {
         let db = new orm("friendlyforks_db");
-        let user = await db.removeOne("users", "auth_id", authID);
+        let user = await db.removeOne("users", "authID", authID);
         await db.close();
-        return;
+        return user;
     }
 
     async getAttendeeByID(attendeeID){
