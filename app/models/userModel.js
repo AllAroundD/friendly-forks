@@ -15,7 +15,7 @@ class UserModel {
         await db.close();
         return user[0].id;
     }
-
+  
     async removeUser(authID) {
         let db = new orm("friendlyforks_db");
         let user = await db.removeOne("users", "auth_id", authID);
@@ -54,7 +54,7 @@ class UserModel {
         return user;
 
     }
-  
+    
 }
 
 module.exports = UserModel;
