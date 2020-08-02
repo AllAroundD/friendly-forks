@@ -35,5 +35,22 @@ class UserModel {
         let events = await db.leftJoinWhere("users", "events", "users.id", "events.id", "events.id", userID);
         await db.close();
         return events;
+
     }
+
+    async removeEvent(eventID){
+        let db = new orm("friendlyfork_db")
+        let events = await db.removeOne("events", "events.id", "",  ) 
+        await db.close()
+        return events
+    }
+
+
+    async viewAllEvents(){}
+
+    async getEventByCriteria(){}
+
+
+
+
 }
