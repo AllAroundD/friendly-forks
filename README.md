@@ -47,7 +47,7 @@ No tests.
 <a id='toc-contact'></a>
 ## Questions
 
-Please direct any questions, concerns, and compliments to [Doug Moore](https://github.com/AllAroundD/) or [Christine Clemens](https://github.com/ChristineClemens).
+Please direct any questions, concerns, and compliments to [Doug Moore](https://github.com/AllAroundD/) or [Christine Clemens](https://github.com/ChristineClemens) or [Shayanne Samarasinghe](https://github.com/ShayanneSamarasinghe).
  
 
 
