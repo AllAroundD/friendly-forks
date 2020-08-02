@@ -1,7 +1,7 @@
 const orm = require("../config/orm");
 const DB = require("../config/orm");
 
-class UserModel {
+class EventModel {
     async getEvents(column, search) {
         let db = new orm("friendlyforks_db");
         let events = await db.selectSome("events", column, search);
@@ -36,4 +36,7 @@ class UserModel {
         await db.close();
         return events;
     }
+
 }
+
+module.exports = EventModel;

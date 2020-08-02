@@ -6,7 +6,6 @@ USE friendlyforks_db;
 
 CREATE TABLE users (
 id INTEGER AUTO_INCREMENT NOT NULL,
-type VARCHAR(255),
 password VARCHAR (255),
 session VARCHAR (255),
 authID VARCHAR (255),
@@ -26,6 +25,7 @@ PRIMARY KEY(id)
 CREATE TABLE events (
 id INTEGER AUTO_INCREMENT NOT NULL,
 eventDate TIMESTAMP,
+type VARCHAR(255),
 availableSeats INTEGER,
 eventNotes VARCHAR(255),
 restrictions VARCHAR(255),
