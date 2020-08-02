@@ -7,7 +7,7 @@ const app = express()
 const uuid = require( 'uuid' )
 
 const UPLOAD_PATH = process.env.UPLOAD_PATH || 'public/uploads/'
-const uploadResizer = require('./uploadResizer')
+const uploadResizer = require('./app/uploadResizer')
 const upload = require('multer')({ dest: UPLOAD_PATH })
 
 // Serve up static assets (usually on heroku)
