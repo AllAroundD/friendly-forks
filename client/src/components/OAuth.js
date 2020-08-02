@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-const API_URL = window.location.protocol+'//'+window.location.host.replace('localhost:3000','localhost:8080');
+const API_URL = window.location.protocol+'//'+window.location.host.replace('localhost:3001','localhost:8080');
 
 let oAuthWindow;
 let oAuthPending = false;
