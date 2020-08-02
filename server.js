@@ -6,6 +6,10 @@ const PORT = process.env.PORT || 3001
 const app = express()
 const uuid = require( 'uuid' )
 
+const UPLOAD_PATH = process.env.UPLOAD_PATH || 'public/uploads/'
+const uploadResizer = require('./uploadResizer')
+const upload = require('multer')({ dest: UPLOAD_PATH })
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"))
@@ -81,6 +85,11 @@ app.get('/server-status', function(req, res){
   res.send({ status: 'running', time: Date.now() })
 })
 
+app.get('/api/media', async function (req, res) {
+  console.log('[api/media] getting the list')
+  const mediaList = await orm.getMedia()
+  res.send({ status: true, mediaList })
+})
 
 // Send every request to the React app
 // Define any API routes before this runs
