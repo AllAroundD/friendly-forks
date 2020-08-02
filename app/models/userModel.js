@@ -20,7 +20,7 @@ class UserModel {
         let db = new orm("friendlyforks_db");
         let user = await db.removeOne("users", "auth_id", authID);
         await db.close();
-        return;
+        return user;
     }
 
     async getAttendeeByID(attendeeID){
