@@ -51,7 +51,7 @@ class DB {
 
     updateUser(userData) {
         const queryString = `UPDATE events SET firstName=${userData.firstName}, lastName=${userData.lastName}, profilePicture=${userData.profilePicture}, 
-        userEmail=${userData.userEmail}, userLocation=${userData.userLocation}, userAddress=${userData.userAddress}, userNotes=${userData.userNotes} WHERE id=${id})`
+        userEmail=${userData.userEmail}, userLocation=${userData.userLocation}, userAddress=${userData.userAddress}, userNotes=${userData.userNotes} WHERE id=${id}`
         console.log(`[updateUser] queryString`, queryString);
         return new Promise ((resolve, reject) => {
             this.connection.query(queryString, function (err, rows) {
@@ -65,6 +65,17 @@ class DB {
         const queryString = `INSERT INTO events (eventDate, availableSeats, eventNotes, restrictions)
         VALUES ('${eventData.eventDate}', '${eventData.availableSeats}', '${eventData.eventNotes}', '${restrictions}')`
         console.log(`[addEvent] queryString`, queryString);
+        return new Promise ((resolve, reject) => {
+            this.connection.query(queryString, function (err, rows) {
+                if (err) reject (err)
+                resolve(rows)
+            })
+        })
+    }
+
+    updateEvent(eventData) {
+        const queryString = `UPDATE events SET eventDate=${eventData.eventDate}, availableSeats=${eventData.availableSeats}, eventNotes=${eventData.restrictions})`
+        console.log(`[updateEvent] queryString`, queryString);
         return new Promise ((resolve, reject) => {
             this.connection.query(queryString, function (err, rows) {
                 if (err) reject (err)
