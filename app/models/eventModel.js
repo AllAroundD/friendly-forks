@@ -30,7 +30,7 @@ class EventModel {
         return events;
     }
 
-    async getEventAndUser(userID) {
+    async getEventAndHost(userID) {
         let db = new orm("friendlyforks_db");
         let events = await db.leftJoinWhere("users", "events", "users.id", "events.id", "events.id", userID);
         await db.close();

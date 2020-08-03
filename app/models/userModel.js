@@ -55,7 +55,13 @@ class UserModel {
 
     }
     
+    async requestSeat() {
+        let db = new orm ("friendlyforks_db");
+        let attendee = await db.getUserByID(userID);
+        
+        let seat = await db.insertOne("events", `attendeeID=${user}`);
 
+    }
 }
 
 module.exports = UserModel;
