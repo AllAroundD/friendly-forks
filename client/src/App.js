@@ -5,9 +5,9 @@ import { GlobalStore } from './components/GlobalStore'
 import NavBar from './components/NavBar'
 
 import RegisterPage from './components/RegisterPage'
-// import LoginPage from './components/LoginPage';
-// import LogoutPage from './components/LogoutPage';
-// import Footer from './components/Footer';
+import LoginPage from './components/LoginPage';
+import LogoutPage from './components/LogoutPage';
+import Footer from './components/Footer';
 
 function App() {
     return (
@@ -18,11 +18,11 @@ function App() {
                     <div class="container">
 
                         <Route exact path="/register" component={RegisterPage} />
-                        {/* <Route exact path="/login" component={LoginPage} />
-                          <Route exact path="/logout" component={LogoutPage} /> */}
+                        <Route exact path="/login" component={LoginPage} />
+                        <Route exact path="/logout" component={LogoutPage} />
                     </div>
 
-                    {/* <Footer /> */}
+                    <Footer />
                 </div>
             </Router>
         </GlobalStore>

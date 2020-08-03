@@ -50,7 +50,7 @@ function oAuth(app, API_URL, providers, createOAuthSession) {
                passport.use(new FacebookStrategy(CONFIG, callback));
                break;
             default:
-               console.log(`[oAuth ERROR Unknown provider (${provider}); not doing anythiny.`);
+               console.log(`[oAuth ERROR Unknown provider (${provider}); not doing anything.`);
                break;
          }
       }
@@ -79,11 +79,6 @@ function oAuth(app, API_URL, providers, createOAuthSession) {
          // make the returned user structure consistent
          let user = { type: provider };
          switch (provider) {
-            case 'twitter':
-               user.name = req.user.displayName ? req.user.displayName : req.user.username;
-               user.thumbnail = req.user.photos[0].value.replace(/_normal/, '');
-               user.authId = `twitterid:${req.user.id}`;
-               break;
             case 'google':
                user.name = req.user.displayName;
                user.thumbnail = req.user.photos[0].value.replace(/sz=50/gi, 'sz=250');
@@ -93,17 +88,6 @@ function oAuth(app, API_URL, providers, createOAuthSession) {
                user.name = `${req.user.name.givenName} ${req.user.name.familyName}`;
                user.thumbnail = req.user.photos[0].value;
                user.authId = `facebookid:${req.user.id}`;
-               break;
-            case 'github':
-               user.name = req.user.username;
-               user.thumbnail = req.user.photos[0].value;
-               user.authId = `githubid:${req.user.id}`;
-               break;
-            case 'linkedin':
-               user.name = req.user.displayName;
-               user.thumbnail = req.user.photos[0].value;
-               user.email = req.user.emails[0].value;
-               user.authId = `linkedinid:${req.user.id}`;
                break;
             default:
                console.log(`[ERROR] Unknown provider ${provider}`, req.user);

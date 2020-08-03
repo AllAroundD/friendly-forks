@@ -7,6 +7,7 @@ USE friendlyforks_db;
 CREATE TABLE users (
 id INTEGER AUTO_INCREMENT NOT NULL,
 password VARCHAR (255),
+type VARCHAR (255),
 session VARCHAR (255) default '',
 authID VARCHAR (255) default '',
 firstName VARCHAR(255),

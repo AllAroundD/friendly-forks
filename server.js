@@ -4,7 +4,9 @@ const path = require("path")
 const fs = require('fs')
 const PORT = process.env.PORT || 3001
 const app = express()
+const logger = require('morgan');
 const uuid = require( 'uuid' )
+const orm = require('./app/orm')
 
 const UPLOAD_PATH = process.env.UPLOAD_PATH || 'public/uploads/'
 const uploadResizer = require('./app/uploadResizer')
@@ -19,6 +21,8 @@ if (process.env.NODE_ENV === "production") {
     process.exit()
  }
 }
+
+app.use(logger('dev'));
 
 const API_URL = process.env.NODE_ENV === 'production'
    ? '' : `http://localhost:${PORT}`
@@ -100,3 +104,16 @@ app.get("*", function (req, res) {
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`)
 })
+
+const bcrypt = require( 'bcrypt' );
+const saltRounds = 10;
+let passwordHash = '';
+
+let password='test'
+async function pwdTest( password ){
+  
+passwordHash = await bcrypt.hash(password, saltRounds);
+console.log( `[addTest] (hash=${passwordHash}) password:` );
+}
+
+pwdTest('testing123')
