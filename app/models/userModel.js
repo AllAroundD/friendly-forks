@@ -38,7 +38,6 @@ class UserModel {
         return user;
     }
 
-
     async getAllAttendeesByID(attendeeID){
         let db = new orm ("friendlyforks_db");
         let user = await db.selectSome("events", "attendeeID", attendeeID )
@@ -62,9 +61,12 @@ class UserModel {
         return user 
     }
 
-
-    
-
+    async getLoginCredentials() {
+        let db = new orm ("friendlyforks_db");
+        let userData = await db.selectSome("users", "users.userEmail", userData);
+        await db.close()
+        return userData;
+    }
 }
 
 module.exports = UserModel;

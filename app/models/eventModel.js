@@ -30,7 +30,7 @@ class EventModel {
         return events;
     }
 
-    async getEventAndUser(userID) {
+    async getEventAndHost(userID) {
         let db = new orm("friendlyforks_db");
         let events = await db.leftJoinWhere("users", "events", "users.id", "events.id", "events.id", userID);
         await db.close();
@@ -51,7 +51,6 @@ class EventModel {
         let events = await db.selectAll("events")
         await db.close();
         return events;
-
     }
 
     async getEventByDate(eventDate){
@@ -59,8 +58,6 @@ class EventModel {
         let events = await db.selectSome("events", "events.eventDate", eventDate )
         await db.close();
         return events;
-
-
     }
 
     async getEventbySeat(seatNumber){
@@ -78,15 +75,6 @@ class EventModel {
         await db.close();
         return events;
     }
-
-
-
-
-
-    
-
-
-
 
 }
 
