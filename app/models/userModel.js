@@ -67,6 +67,33 @@ class UserModel {
         await db.closeDB()
         return userData;
     }
+
+    async updateSession(userEmail, session) {
+        let db = new DB ("friendlyforks_db")
+        // let updatedSession=`"session"='${session}'`
+        // let condition=`"userEmail"=${userEmail}`
+        // let updateResult = await db.updateOne("users", { "users.session" : session }, { "users.userEmail": userEmail })
+
+        const queryString = `UPDATE users SET session='${session}' WHERE userEmail='${userEmail}'`
+        console.log('queryString: ',queryString)
+        let updateResult = await db.query(queryString)
+
+        let userData
+        if (updateResult) {
+            userData = await db.selectOne("users","users.userEmail", userEmail)
+        }
+
+        await db.closeDB()
+        return userData
+    }
+
+    async checkSession(session) {
+        let db = new DB ("friendlyforks_db")
+        let userData = await db.selectOne("users","users.session", session)
+        await db.closeDB()
+        return userData
+    }
+
 }
 
-module.exports = UserModel;
+module.exports = UserModel

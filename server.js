@@ -37,7 +37,7 @@ async function needSession(req, res, next){
   // check session set, and it's valid
   if( !req.headers.session ||
        req.headers.session.length!==36 ||
-       !(await orm.checkSession( req.headers.session )) ){
+       !(await login.checkSession( req.headers.session )) ){
 
      console.log( '[middleware:session] invalid session, indicating redirect' )
      res.status(403).send( { error: 'Requires valid session. Please login again.' } )
@@ -78,8 +78,8 @@ app.post('/api/user/login', async function( req,res ){
   console.log( '[POST: /api/user/login] userData: ', userData )
   const session = uuid.v4()
   console.log('[POST: /api/user/login] session: ', session )
-  // const loginResult = await orm.loginUser( userData.email, userData.password, session )
-  const loginResult = await login.loginUser( req.body.email, req.body.password, session )
+  const loginResult = await login.loginUser( userData.email, userData.password, session )
+  // const loginResult = await login.loginUser( req.body.email, req.body.password, session )
   loginResult.rememberMe = req.body.rememberMe
   res.send( loginResult )
 })
@@ -111,14 +111,14 @@ app.listen(PORT, function () {
 })
 
 // just for testing
-const bcrypt = require( 'bcrypt' );
-const saltRounds = 10;
-let passwordHash = '';
+// const bcrypt = require( 'bcrypt' );
+// const saltRounds = 10;
+// let passwordHash = '';
 
-async function pwdTest( password ){
+// async function pwdTest( password ){
   
-passwordHash = await bcrypt.hash(password, saltRounds);
-console.log( `[addTest] (hash=${passwordHash})`);
-}
+// passwordHash = await bcrypt.hash(password, saltRounds);
+// console.log( `[addTest] (hash=${passwordHash})`);
+// }
 
-pwdTest('testing123')
+// pwdTest('testing123')
