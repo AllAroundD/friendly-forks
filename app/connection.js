@@ -1,4 +1,4 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 
 if (! process.env.JAWSDB_URL) {
     require("dotenv").config();

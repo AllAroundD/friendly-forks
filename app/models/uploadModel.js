@@ -16,7 +16,4 @@ function saveMedia(mediaData) {
     fs.appendFileSync(dbFile, `${mediaData.imageUrl}\n`)
 }
 
-<<<<<<< HEAD
-=======
 module.exports = {getMedia,saveMedia};
->>>>>>> doug
