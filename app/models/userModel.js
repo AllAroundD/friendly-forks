@@ -54,13 +54,20 @@ class UserModel {
         return user;
 
     }
-    
+    //UNFINISHED
     async requestSeat() {
         let db = new orm ("friendlyforks_db");
         let attendee = await db.getUserByID(userID);
-        
+
         let seat = await db.insertOne("events", `attendeeID=${user}`);
 
+    }
+
+    async getLoginCredentials() {
+        let db = new orm ("friendlyforks_db");
+        let email = await db.selectSome("users", "users.userEmail", userData);
+        await db.close()
+        return userData;
     }
 }
 

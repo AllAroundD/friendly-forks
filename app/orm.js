@@ -115,10 +115,7 @@ class DB {
 
     selectSome(tableName, columnName, searchValue) {
         return new Promise((resolve, reject) => {
-            this.connection.query("SELECT * FROM ?? WHERE ?? = ?", [tableName, columnName, searchValue], function (
-                err,
-                rows
-            ) {
+            this.connection.query("SELECT * FROM ?? WHERE ?? = ?", [tableName, columnName, searchValue], function (err, rows) {
                 if (err) reject(err)
                 resolve(rows)
             })
@@ -136,6 +133,16 @@ class DB {
                 }
             );
         });
+    }
+
+    selectMultipleValues(column1, column2, column3, tableName) {
+        return new Promise((resolve, reject) => {
+            this.connection.query("Select ?, ?, ? FROM ??", [column1, column2, column3, tableName],
+            function (err, rows) {
+                if (err) reject (err);
+                resolve(rows);
+            })
+        })
     }
 }
 
