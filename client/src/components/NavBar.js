@@ -73,8 +73,6 @@ function NavBar() {
         prevLocation = location.pathname;
     }
 
-    const cartTotalQuantity =( globalData && globalData.cart ? globalData.cart.reduce( (total,item) => total+item.num, 0 ) : 0 );
-
     return (
     <>
     { invalidSession ? <Redirect to='/login' /> : '' }
@@ -98,14 +96,6 @@ function NavBar() {
                 <li className="nav-item">
                     <NavLink to="/settings" className="nav-link" activeClassName="active">Settings</NavLink>
                 </li>
-                <li className="nav-item">
-                    <NavLink to="/cart" className="nav-link" activeClassName="active">
-                        { cartTotalQuantity
-                            ? <span class="badge badge-pill badge-success"><i class="fas fa-shopping-cart"></i> {cartTotalQuantity}</span>
-                            : ''
-                        }
-                    </NavLink>
-                </li>
                 { localStorage.session ?
                     <li className="nav-item">
                         <NavLink to="/logout" className="nav-link">Logout</NavLink>
@@ -121,7 +111,7 @@ function NavBar() {
 
     <div class='container'>
         {/* show user session info */}
-        { globalData.name ? <div class='d-block'>{ globalData && globalData.thumbnail ? <img src={globalData.thumbnail} id='navThumbnail' /> : '' } Welcome {globalData.name}</div> : '' }
+        { globalData.name ? <div class='d-block'>{ globalData && globalData.thumbnail ? <img src={globalData.thumbnail} id='navThumbnail' alt=''/> : '' } Welcome {globalData.name}</div> : '' }
         {/* show a global message bar below the nav */}
         <div className={ globalData.messageType ? `alert alert-${globalData.messageType}` : 'd-hide' } role="alert">
             {globalData.message}

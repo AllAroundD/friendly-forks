@@ -54,6 +54,7 @@ class UserModel {
         return user;
 
     }
+<<<<<<< HEAD
     //UNFINISHED
     async requestSeat() {
         let db = new orm ("friendlyforks_db");
@@ -62,6 +63,18 @@ class UserModel {
         let seat = await db.insertOne("events", `attendeeID=${user}`);
 
     }
+=======
+
+    async getUserEmail (userEmail){
+        let db = new orm ("friendlyforks_db")
+        let user = await db.selectOne("users", "users.userEmail", userEmail ) 
+        await db. close()
+        return user 
+    }
+
+
+    
+>>>>>>> master
 
     async getLoginCredentials() {
         let db = new orm ("friendlyforks_db");

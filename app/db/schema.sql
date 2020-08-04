@@ -7,8 +7,9 @@ USE friendlyforks_db;
 CREATE TABLE users (
 id INTEGER AUTO_INCREMENT NOT NULL,
 password VARCHAR (255),
-session VARCHAR (255),
-authID VARCHAR (255),
+type VARCHAR (255),
+session VARCHAR (255) default '',
+authID VARCHAR (255) default '',
 firstName VARCHAR(255),
 lastName VARCHAR(255),
 profilePicture VARCHAR(255),
@@ -16,9 +17,14 @@ userEmail VARCHAR(255),
 userLocation VARCHAR(255),
 userAddress VARCHAR(255),
 userNotes VARCHAR(255),
+<<<<<<< HEAD
 eventsHosted INTEGER,
 eventsAttended INTEGER,
 updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+=======
+eventsHosted INTEGER DEFAULT 0,
+eventsAttended INTEGER DEFAULT 0,
+>>>>>>> master
 createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY(id)
 );
@@ -26,7 +32,6 @@ PRIMARY KEY(id)
 CREATE TABLE events (
 id INTEGER AUTO_INCREMENT NOT NULL,
 eventDate TIMESTAMP,
-type VARCHAR(255),
 availableSeats INTEGER,
 eventNotes VARCHAR(255),
 restrictions VARCHAR(255),

@@ -22,6 +22,7 @@ function RegisterPage(){
         e.preventDefault();
         
         if( userData.email.trim() === "" ||
+            // eslint-disable-next-line
             !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userData.email)) ) {
             inputEmail.current.focus();
             dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a valid email' } );
@@ -67,7 +68,7 @@ function RegisterPage(){
                     Register
                     </div>
                     <div class="card-body">
-                    <form role="form">
+                    <form>
                         <input type='hidden' id='db_id' value='' />
                         <div class="form-group">
                             <label for="name">First Name</label>

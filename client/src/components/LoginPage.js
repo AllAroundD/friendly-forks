@@ -53,8 +53,9 @@ function LoginPage(){
             return;
         }
 
+        console.log(`[loginUser] before /api/user/login`, userData )
         const apiResult = await API.post( '/api/user/login', userData );
-                  
+        console.log('user is logging in...')     
         if( apiResult.error ){
             dispatch( { do: 'setMessage', type: 'danger', message: apiResult.error } );
             // clear any session
@@ -67,15 +68,16 @@ function LoginPage(){
 
     return (
         <div>
-            { globalData.loggedIn ? <Redirect to='/productlist' /> : '' }
+            { globalData.loggedIn ? <Redirect to='/landing' /> : '' }       {/* added landing */}
 
             <hr />
             <h1>Login</h1>
         
             <div class="container">
-                <OAuth providers={['twitter','facebook','github','google','linkedin']} loginComplete={loginComplete} />
+                <OAuth providers={['facebook','google']} loginComplete={loginComplete} />
                 <div class="card">
                     <div class="card-body">
+                    {/* eslint-disable-next-line */}
                     <form role="form">
                         <div class="form-group">
                             <label for="userEmail">Email Address</label>
