@@ -1,5 +1,5 @@
-const orm = require("../config/orm");
-const DB = require("../config/orm");
+const orm = require("../orm");
+const DB = require("../orm");
 
 class UserModel {
     async getUserByID(userID) {
@@ -61,9 +61,9 @@ class UserModel {
         return user 
     }
 
-    async getLoginCredentials() {
+    async getLoginCredentials(userEmail) {
         let db = new orm ("friendlyforks_db");
-        let userData = await db.selectSome("users", "users.userEmail", userData);
+        let userData = await db.selectSome("users", "users.userEmail", userEmail);
         await db.close()
         return userData;
     }
