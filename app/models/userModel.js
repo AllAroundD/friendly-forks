@@ -54,6 +54,15 @@ class UserModel {
         return user;
 
     }
+
+    async getUserEmail (userEmail){
+        let db = new orm ("friendlyforks_db")
+        let user = await db.selectOne("users", "users.userEmail", userEmail ) 
+        await db. close()
+        return user 
+    }
+
+
     
 
 }
