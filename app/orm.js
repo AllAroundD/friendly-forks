@@ -147,7 +147,9 @@ async function loginUser( email, password, session ) {
     }
     console.log('[loginUser] checking user email: ', email)
     // const userData = await db.users.findOne({ email: email }, '-createdAt -updatedAt');
-    const userData = await getUserEmail({ email: email });
+    
+    let db = new orm('friendlyforks_db')
+    const userData = db.selectSome('users', 'userEmail', email)
     console.log( `[loadUser] email='${email}' userData:`, userData );
 
 
