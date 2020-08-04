@@ -73,8 +73,6 @@ function NavBar() {
         prevLocation = location.pathname;
     }
 
-    const cartTotalQuantity =( globalData && globalData.cart ? globalData.cart.reduce( (total,item) => total+item.num, 0 ) : 0 );
-
     return (
     <>
     { invalidSession ? <Redirect to='/login' /> : '' }
@@ -97,14 +95,6 @@ function NavBar() {
                 </li>
                 <li className="nav-item">
                     <NavLink to="/settings" className="nav-link" activeClassName="active">Settings</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to="/cart" className="nav-link" activeClassName="active">
-                        { cartTotalQuantity
-                            ? <span class="badge badge-pill badge-success"><i class="fas fa-shopping-cart"></i> {cartTotalQuantity}</span>
-                            : ''
-                        }
-                    </NavLink>
                 </li>
                 { localStorage.session ?
                     <li className="nav-item">
