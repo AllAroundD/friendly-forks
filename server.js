@@ -7,6 +7,7 @@ const app = express()
 const logger = require('morgan');
 const uuid = require( 'uuid' )
 const orm = require('./app/orm')
+const login = require('./app/models/loginModel')
 
 const UPLOAD_PATH = process.env.UPLOAD_PATH || 'public/uploads/'
 const uploadResizer = require('./app/uploadResizer')
@@ -78,7 +79,7 @@ app.post('/api/user/login', async function( req,res ){
   const session = uuid.v4()
   console.log('[POST: /api/user/login] session: ', session )
   // const loginResult = await orm.loginUser( userData.email, userData.password, session )
-  const loginResult = await orm.loginUser( req.body.email, req.body.password, session )
+  const loginResult = await login.loginUser( req.body.email, req.body.password, session )
   loginResult.rememberMe = req.body.rememberMe
   res.send( loginResult )
 })

@@ -1,3 +1,6 @@
+const UserModel = require('./userModel')
+const userModel = new UserModel()
+
 // input: email, password
 // output: <object> { userId, firstName, lastName, emailAddress, creationTime } || false
 async function loginUser( email, password, session ) {
@@ -46,3 +49,4 @@ async function loginUser( email, password, session ) {
     };
  }
 
+ module.exports = {loginUser};

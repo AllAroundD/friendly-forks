@@ -13,3 +13,5 @@ function getMedia() {
 function saveMedia(mediaData) {
     fs.appendFileSync(dbFile, `${mediaData.imageUrl}\n`)
 }
+
+module.exports = {getMedia,saveMedia};
