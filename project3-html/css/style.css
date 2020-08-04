@@ -247,7 +247,7 @@
 		
 		.btn 
 		{
-			background-color: #008CBA; /* Blue */
+			background-color: #ADFF00; /* Blue */
 			color: white;
 			padding: 15px 32px;
 			text-align: center;
@@ -258,7 +258,7 @@
 
 		  .btn2 
 		{
-			background-color: #555555; /* Gray */
+			background-color: #00ffb3; /* Gray */
 			color: white;
 			padding: 15px 32px;
 			text-align: center;
@@ -719,7 +719,7 @@
 	#logo-wrapper
 	{
 		position: relative;
-		background: #db3b5d url(images/overlay.png) repeat;
+		background: #ADFF00 url(images/overlay.png) repeat;
 	}
 
 	#logo
@@ -780,13 +780,13 @@
 				text-decoration: none;
 				text-transform: uppercase;
 				font-size: 1em;
-				color: #db3b5d;
+				color: #00ff80;
 				outline: 0;
 			}
 
 			#nav li.active a
 			{
-				background: #db3b5d;
+				background: #00ff80;
 				border-radius: 25px;
 				color: #FFF;
 			}
@@ -845,7 +845,7 @@
 	{
 		position: relative;
 		background: #2c2c2c url(images/overlay.png) repeat;
-		color: rgba(255,255,255,.4);
+		color: #ADFF00;
 	}
 	
 	#footer header
@@ -875,4 +875,10 @@
 		color: rgba(255,255,255,.3);
 	}			
 
-	
+	.specialThanks
+	{
+		position: relative;
+		padding: 3em 0em;
+		text-align: center;
+		color: #00ff80;
+	}
