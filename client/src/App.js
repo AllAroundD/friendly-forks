@@ -9,6 +9,8 @@ import LoginPage from './components/LoginPage';
 import LogoutPage from './components/LogoutPage';
 import Footer from './components/Footer';
 
+import './App.css'
+
 function App() {
     return (
         <GlobalStore> {/* provides common elements across components */}
