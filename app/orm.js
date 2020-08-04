@@ -1,4 +1,4 @@
-const {connectDB, closeDB} = require("./connection.js")
+const {connectDB, closeDB} = require("./connection")
 const fs = require('fs')
 const dbFile = './medialist.data'
 
