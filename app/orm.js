@@ -1,11 +1,19 @@
-const {connectDB, closeDB} = require("./connection.js")
+const {connectDB, closeDB} = require("./connection")
 const fs = require('fs')
 const dbFile = './medialist.data'
+const UserModel = require('./models/UserModel')
+const EventModel = require('./models/EventModel')
+const userModel = new UserModel()
+const eventModel = new EventModel()
 
 class DB {
-    constructor() {
-        this.connection = connectDB();
+    // constructor() {
+    //     this.connection = connectDB();
+    // }
+    constructor(db_name) {
+        this.connection = connectDB(db_name);
     }
+
 
     closeDB() {
         return closeDB(this.connection);
@@ -147,24 +155,4 @@ class DB {
 }
 
 
-function getMedia() {
-    console.log(`[getMedia] ${__dirname}`)
-    if (!fs.existsSync(dbFile)) {
-        return []
-    }
-
-    // split by the new-lines
-    mediaList = fs.readFileSync(dbFile, 'utf8').split('\n')
-    return mediaList
-}
-
-function saveMedia(mediaData) {
-    fs.appendFileSync(dbFile, `${mediaData.imageUrl}\n`)
-}
-
-
-module.exports = {
-    DB,
-    getMedia,
-    saveMedia
-}
+module.exports = DB;

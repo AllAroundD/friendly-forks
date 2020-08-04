@@ -7,6 +7,7 @@ const app = express()
 const logger = require('morgan');
 const uuid = require( 'uuid' )
 const orm = require('./app/orm')
+const login = require('./app/models/loginModel')
 
 const UPLOAD_PATH = process.env.UPLOAD_PATH || 'public/uploads/'
 const uploadResizer = require('./app/uploadResizer')
@@ -21,11 +22,13 @@ if (process.env.NODE_ENV === "production") {
     process.exit()
  }
 }
-
+// for post requests
+app.use( express.urlencoded({ extended: false }) );
+app.use( express.json() );
 app.use(logger('dev'));
 
 const API_URL = process.env.NODE_ENV === 'production'
-   ? '' : `http://localhost:${PORT}`
+   ? '' : `http://localhost:${PORT}`      // TODO add prod url once ready
 
 // session checking middleware
 async function needSession(req, res, next){
@@ -74,7 +77,9 @@ app.post('/api/user/login', async function( req,res ){
   const userData = req.body
   console.log( '[POST: /api/user/login] userData: ', userData )
   const session = uuid.v4()
-  const loginResult = await orm.loginUser( userData.email, userData.password, session )
+  console.log('[POST: /api/user/login] session: ', session )
+  // const loginResult = await orm.loginUser( userData.email, userData.password, session )
+  const loginResult = await login.loginUser( req.body.email, req.body.password, session )
   loginResult.rememberMe = req.body.rememberMe
   res.send( loginResult )
 })
@@ -105,15 +110,15 @@ app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`)
 })
 
+// just for testing
 const bcrypt = require( 'bcrypt' );
 const saltRounds = 10;
 let passwordHash = '';
 
-let password='test'
 async function pwdTest( password ){
   
 passwordHash = await bcrypt.hash(password, saltRounds);
-console.log( `[addTest] (hash=${passwordHash}) password:` );
+console.log( `[addTest] (hash=${passwordHash})`);
 }
 
 pwdTest('testing123')
