@@ -6,7 +6,8 @@ import OAuth from "./OAuth";
 
 function LoginPage(){
     // DECLARATIVE FORM OF PROGRAMMING
-    const [ userData, setUserData ] = useState({ name: "", email: localStorage.email, password: "", rememberMe: true });
+    // const [ userData, setUserData ] = useState({ name: "", email: localStorage.email, password: "", rememberMe: true });
+    const [ userData, setUserData ] = useState({ name: "", email: 'john.doe@gmail.com', password: "testing123", rememberMe: true });
     const [ globalData, dispatch ] = useGlobalStore();
 
     const inputEmail = useRef();
@@ -39,21 +40,20 @@ function LoginPage(){
     }
 
     async function loginUser( e ){
-        e.preventDefault();
-        
+        e.preventDefault()
         if( userData.email === "" ) {
             inputEmail.focus();
             dispatch( { do: 'setMessage', type: 'danger', message: 'Please enter your email!' } );
-            return;
+            return
         }
     
         if( userData.password === "" || userData.password.length < 8 ) {
-            inputPassword.current.focus();
+            inputPassword.current.focus()
             dispatch( { do: 'setMessage', type: 'danger', message: 'Please enter your password!' } );
-            return;
+            return
         }
 
-        console.log(`[loginUser] before /api/user/login`, userData )
+        console.log(`[loginUser] before /api/user/login (userData)`, userData )
         const apiResult = await API.post( '/api/user/login', userData );
         console.log('user is logging in...')     
         if( apiResult.error ){
