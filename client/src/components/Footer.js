@@ -5,6 +5,11 @@ function Footer( props ){
         <>
             <div id="footer-padding"></div>
             <div id="footer">&copy; 2020 The Virtual Reactors</div>
+            <div class="container">
+				<section>
+					Design: <a href="https://templated.co/license" target="_blank">TEMPLATED</a> Images: <a href="http://unsplash.com">Unsplash</a> (<a href="http://unsplash.com/cc0">CC0</a>)
+				</section>
+			</div>
         </>
     )
 }
