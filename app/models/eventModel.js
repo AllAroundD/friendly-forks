@@ -1,5 +1,5 @@
-const orm = require("../config/orm");
-const DB = require("../config/orm");
+const orm = require("../orm")
+const DB = require("../orm")
 
 class EventModel {
     async getEvents(column, search) {
@@ -61,7 +61,7 @@ class EventModel {
     }
 
     async getEventbySeat(seatNumber){
-        let seatNumber = document.querySelector("#availableSeat").selectedOptions[i].value
+        // let seatNumber = document.querySelector("#availableSeat").selectedOptions[i].value
         let db = new orm("friendlyforks_db")
         let events = await db.selectSome("events", "events.availableSeats", seatNumber)
         await db.close();
@@ -69,7 +69,7 @@ class EventModel {
     }
 
     async getEventbyRestrictions(restrictions){
-        let restrictions = document.querySelector("dietRestrict").selectedOptions[i].value
+        // let restrictions = document.querySelector("dietRestrict").selectedOptions[i].value
         let db = orm ("friendlyforks_db")
         let events = await db.selectSome("events", "events.restriction", restrictions)
         await db.close();

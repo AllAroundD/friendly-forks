@@ -1,11 +1,19 @@
 const {connectDB, closeDB} = require("./connection.js")
 const fs = require('fs')
 const dbFile = './medialist.data'
+const UserModel = require('./models/UserModel')
+const EventModel = require('./models/EventModel')
+const userModel = new UserModel()
+const eventModel = new EventModel()
 
 class DB {
-    constructor() {
-        this.connection = connectDB();
+    // constructor() {
+    //     this.connection = connectDB();
+    // }
+    constructor(db_name) {
+        this.connection = connectDB(db_name);
     }
+
 
     closeDB() {
         return closeDB(this.connection);
@@ -155,8 +163,7 @@ async function loginUser( email, password, session ) {
     console.log('[loginUser] checking user email: ', email)
     // const userData = await db.users.findOne({ email: email }, '-createdAt -updatedAt');
     
-    let db = new orm('friendlyforks_db')
-    const userData = db.selectSome('users', 'userEmail', email)
+    const userData = await userModel.getLoginCredentials(email)
     console.log( `[loadUser] email='${email}' userData:`, userData );
 
 
