@@ -6,6 +6,7 @@ function get( url ){
 }
 
 function post( url, userData ){
+    console.log(`[in API post] userData `, JSON.stringify(userData))
     return fetch( url, 
         {   method: 'post',
             headers: {
