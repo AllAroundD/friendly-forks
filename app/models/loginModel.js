@@ -1,6 +1,8 @@
 const UserModel = require('./userModel')
 const userModel = new UserModel()
-const bcrypt = require("bcrypt");
+const bcrypt = require( 'bcrypt' );
+const saltRounds = 10;
+let passwordHash = '';
 
 // input: email, password
 // output: <object> { userId, firstName, lastName, emailAddress, creationTime } || false
