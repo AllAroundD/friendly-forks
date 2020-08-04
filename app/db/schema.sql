@@ -17,14 +17,9 @@ userEmail VARCHAR(255),
 userLocation VARCHAR(255),
 userAddress VARCHAR(255),
 userNotes VARCHAR(255),
-<<<<<<< HEAD
 eventsHosted INTEGER,
 eventsAttended INTEGER,
 updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-=======
-eventsHosted INTEGER DEFAULT 0,
-eventsAttended INTEGER DEFAULT 0,
->>>>>>> master
 createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY(id)
 );
