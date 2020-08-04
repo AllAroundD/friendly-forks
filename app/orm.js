@@ -64,8 +64,8 @@ class DB {
     }
      
     addEvent(eventData) {
-        const queryString = `INSERT INTO events (eventDate, availableSeats, eventNotes, restrictions)
-        VALUES ('${eventData.eventDate}', '${eventData.availableSeats}', '${eventData.eventNotes}', '${restrictions}')`
+        const queryString = `INSERT INTO events (eventDate, type, availableSeats, eventNotes, restrictions)
+        VALUES ('${eventData.eventDate}', '${eventData.type}', '${eventData.availableSeats}', '${eventData.eventNotes}', '${restrictions}')`
         console.log(`[addEvent] queryString`, queryString);
         return new Promise ((resolve, reject) => {
             this.connection.query(queryString, function (err, rows) {
@@ -76,7 +76,7 @@ class DB {
     }
 
     updateEvent(eventData) {
-        const queryString = `UPDATE events SET eventDate=${eventData.eventDate}, availableSeats=${eventData.availableSeats}, eventNotes=${eventData.restrictions})`
+        const queryString = `UPDATE events SET eventDate=${eventData.eventDate}, type=${eventData.type}, availableSeats=${eventData.availableSeats}, eventNotes=${eventData.restrictions})`
         console.log(`[updateEvent] queryString`, queryString);
         return new Promise ((resolve, reject) => {
             this.connection.query(queryString, function (err, rows) {
@@ -115,10 +115,7 @@ class DB {
 
     selectSome(tableName, columnName, searchValue) {
         return new Promise((resolve, reject) => {
-            this.connection.query("SELECT * FROM ?? WHERE ?? = ?", [tableName, columnName, searchValue], function (
-                err,
-                rows
-            ) {
+            this.connection.query("SELECT * FROM ?? WHERE ?? = ?", [tableName, columnName, searchValue], function (err, rows) {
                 if (err) reject(err)
                 resolve(rows)
             })
@@ -136,6 +133,16 @@ class DB {
                 }
             );
         });
+    }
+
+    selectMultipleValues(column1, column2, column3, tableName) {
+        return new Promise((resolve, reject) => {
+            this.connection.query("Select ?, ?, ? FROM ??", [column1, column2, column3, tableName],
+            function (err, rows) {
+                if (err) reject (err);
+                resolve(rows);
+            })
+        })
     }
 }
 
