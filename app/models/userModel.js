@@ -64,7 +64,7 @@ class UserModel {
     async getLoginCredentials(userEmail) {
         let db = new DB ("friendlyforks_db");
         let userData = await db.selectSome("users", "users.userEmail", userEmail);
-        await db.close()
+        await db.closeDB()
         return userData;
     }
 }
