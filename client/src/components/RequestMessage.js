@@ -8,7 +8,6 @@ const RequestMessage = () => {
             </div>
             <button type="button" class="btn btn-primary">Respond</button>
 
-
         </div>
     )
 }
