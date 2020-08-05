@@ -17,6 +17,7 @@ function App() {
             <Router>
                 <div className="App">
                     <NavBar />
+                    <div class="w3-main" style={{marginLeft: '340px', marginRight: '40px'}}>
                     <div class="container">
 
                         <Route exact path="/register" component={RegisterPage} />
@@ -25,6 +26,7 @@ function App() {
                     </div>
 
                     <Footer />
+                </div>
                 </div>
             </Router>
         </GlobalStore>
