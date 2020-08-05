@@ -85,6 +85,14 @@ app.post('/api/user/login', async function( req,res ){
   res.send( loginResult )
 })
 
+app.get('/api/user/session', needSession, async function( req,res ){
+  const session = req.headers.session
+  console.log( '[POST: /api/user/session] userSession: ', session )
+  const userData = await login.getUserInfo( session )
+  console.log(`[server.js] GET /api/user/session `, userData)
+  res.send( userData )
+})
+
 app.post('/api/user/logout', needSession, async function( req,res ){
   console.log( '[POST: /api/user/logout] userData: ' )
   const logoutResult = await login.logoutUser( req.headers.session )
