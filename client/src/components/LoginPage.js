@@ -73,9 +73,8 @@ function LoginPage(){
     return (
         <div>
             { globalData.loggedIn ? <Redirect to='/landing' /> : '' }       {/* added landing */} {/*//TODO set page to landing page */}
-
             <h1 style={{marginTop: '80px'}}>Login</h1>
-        
+
             <div class="container">
                 <OAuth providers={['facebook','google']} loginComplete={loginComplete} />
                 <div class="card">
