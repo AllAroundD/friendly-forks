@@ -4,6 +4,7 @@ import { useGlobalStore } from './GlobalStore';
 import { Redirect } from 'react-router-dom';
 import API from './API'
 
+// eslint-disable-next-line
 let showTimeout,serverInterval;
 let prevLocation;
 
