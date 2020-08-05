@@ -107,6 +107,17 @@ class UserModel {
         return userData
     }
 
+    
+    async getUserInfo(session) {
+        let db = new DB ("friendlyforks_db")
+        // let userData = await db.selectOne("users","users.session", session)
+        const queryString = `SELECT * FROM users WHERE session='${session}'`
+        console.log('queryString: ',queryString)
+        let userData = await db.query(queryString)
+        await db.closeDB()
+        return userData
+    }
+
 }
 
 module.exports = UserModel

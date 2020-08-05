@@ -53,10 +53,10 @@ async function loginUser( email, password, session ) {
 
 // input: session
 // output: boolean
-async function checkSession( session ){
-   const userData = await userModel.checkSession(session);
-   console.log( `[checkSession] session(${session}) -> valid? ${userData.id ? true : false}` );
-   return( userData[0].id ? true : false );
+async function getUserInfo( session ){
+   const userData = await userModel.getUserInfo( session );
+   console.log( `[getUserInfo] session(${session})`,userData );
+   return( userData )
 }
 
 // input: session
@@ -64,7 +64,17 @@ async function checkSession( session ){
 async function logoutUser( session ){
    let updateResult = await userModel.clearSession(session);
    console.log( `[logoutUser] session(${session})`, updateResult );
-   return true; //( userData._id ? true : false );
+   return true //( userData._id ? true : false );
 }
 
- module.exports = {loginUser, checkSession, logoutUser};
+// input: session
+// output: boolean
+async function checkSession( session ){
+   const userData = await userModel.checkSession(session);
+   console.log( `[checkSession] session(${session}) -> valid? ${userData.id ? true : false}` );
+   return( userData[0].id ? true : false )
+}
+
+
+
+ module.exports = {loginUser, checkSession, logoutUser, getUserInfo};
