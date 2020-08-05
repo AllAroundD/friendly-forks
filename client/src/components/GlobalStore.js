@@ -31,6 +31,7 @@ function dispatcher(state, action) {
             newState.loggedIn = action.loggedIn;
             if (action.loggedIn === false) // clear the globalData on logout
                 newState = { ...defaultGlobalStore };
+            console.log(`[GlobalStore:loginState] loginState: `,newState);
             return newState;
 
         case 'setUserData':
