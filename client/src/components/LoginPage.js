@@ -73,13 +73,12 @@ function LoginPage(){
     return (
         <div>
             { globalData.loggedIn ? <Redirect to='/landing' /> : '' }       {/* added landing */} {/*//TODO set page to landing page */}
-
             <h1 style={{marginTop: '80px'}}>Login</h1>
-        
+
             <div class="container">
-                <OAuth providers={['facebook','google']} loginComplete={loginComplete} />
+                {/* <OAuth providers={['facebook','google']} loginComplete={loginComplete} />
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body"> */}
                     {/* eslint-disable-next-line */}
                     <form role="form">
                         <div class="form-group">
@@ -106,8 +105,8 @@ function LoginPage(){
                         <a href="/register">Need to Register?</a>
                     </form>
                     </div>
-                </div>
-            </div>
+                {/* </div>
+            </div> */}
         </div>
     )
 }

@@ -10,6 +10,7 @@ import LogoutPage from './components/LogoutPage'
 import Footer from './components/Footer'
 import ProfilePage from './pages/Profile'
 import AboutPage from './pages/About'
+import Jumbotron from './components/Jumbotron'
 // import ProfilePage from './components/UserProfile'
 
 import './App.css'
@@ -22,6 +23,7 @@ function App() {
                 <div className="App">
                     <NavBar />
                     <div class="w3-main" style={{marginLeft: '340px', marginRight: '40px'}}>
+                        <Jumbotron></Jumbotron>
                     <div class="container">
                         <Route exact path="/profile" component={ProfilePage} />
                         <Route exact path="/register" component={RegisterPage} />

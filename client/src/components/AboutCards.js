@@ -3,9 +3,9 @@ import React from 'react'
 const AboutCards = (props) => {
     return (
         <div>
-            <section className="hero-section" target="_blank">
+            <section className="hero-section" target="_blank" rel="noopener noreferrer">
                 <div className="card-grid">
-                    <a className="card" href="https://www.linkedin.com/in/shayanne-samarasinghe-48569111a/">
+                    <a className="aboutCard" href="https://www.linkedin.com/in/shayanne-samarasinghe-48569111a/">
                     <div className="card__background" style={{backgroundImage: 'url(https://avatars3.githubusercontent.com/u/64742100?s=400&u=38ef82a896aa1b3e518a544f1a6e658f0b0f0163&v=4)'}}></div>
                     <div className="card__content">
                         <h5 className="card__heading">Shayanne Samarasinghe</h5>
