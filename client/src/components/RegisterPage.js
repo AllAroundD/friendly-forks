@@ -72,8 +72,12 @@ function RegisterPage(){
                     <form>
                         <input type='hidden' id='db_id' value='' />
                         <div class="form-group">
-                            <label for="name">First Name</label>
-                            <input value={userData.name} onChange={handleInputChange} id='name' type="text" class="form-control" />
+                            <label for="firstName">First Name</label>
+                            <input value={userData.firstName} onChange={handleInputChange} id='firstName' type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="LastName">Last Name</label>
+                            <input value={userData.lastName} onChange={handleInputChange} id='lastName' type="text" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
@@ -91,6 +95,19 @@ function RegisterPage(){
                                 ref={inputPassword}
                                 id="password" type="password" class="form-control" />
                         </div>
+                        <div class="form-group">
+                            <label for="name">Address</label>
+                            <input value={userData.address} onChange={handleInputChange} id='address' type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input value={userData.location} onChange={handleInputChange} id='location' type="text" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Notes: (Please add any notes we should know about you ie: dietary restrictions, what you like to cook? what you like to eat? are you social? etc etc. )</label>
+                            <textarea value={userData.notes} onChange={handleInputChange} id='notes' type="text"  placeholder="notes" class="form-control" />
+                        </div>
+
                         <button onClick={registerUser} class="btn btn-primary submit" >Register</button>
                         &nbsp; &nbsp; <a href="/login" class='font-weight-light text-muted'>Already Registered?</a>
                     </form>
