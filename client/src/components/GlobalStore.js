@@ -4,7 +4,7 @@ import React, { useContext, useReducer } from 'react'
 const defaultGlobalStore = { messageType: '', message: '', serverStatus: '', loggedIn: false };
 
 const GlobalData = React.createContext();
-
+// eslint-disable-next-line 
 let lastDispatcher = { do: '', time: 0 };
 
 function dispatcher(state, action) {
