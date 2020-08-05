@@ -5,9 +5,12 @@ import { GlobalStore } from './components/GlobalStore'
 import NavBar from './components/NavBar'
 
 import RegisterPage from './components/RegisterPage'
-import LoginPage from './components/LoginPage';
-import LogoutPage from './components/LogoutPage';
-import Footer from './components/Footer';
+import LoginPage from './components/LoginPage'
+import LogoutPage from './components/LogoutPage'
+import Footer from './components/Footer'
+import ProfilePage from './pages/Profile'
+import AboutPage from './pages/About'
+// import ProfilePage from './components/UserProfile'
 
 import './App.css'
 
@@ -20,8 +23,9 @@ function App() {
                     <NavBar />
                     <div class="w3-main" style={{marginLeft: '340px', marginRight: '40px'}}>
                     <div class="container">
-
+                        <Route exact path="/profile" component={ProfilePage} />
                         <Route exact path="/register" component={RegisterPage} />
+                        <Route exact path="/about" component={AboutPage} />
                         <Route exact path="/login" component={LoginPage} />
                         <Route exact path="/logout" component={LogoutPage} />
                     </div>

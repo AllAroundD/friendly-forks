@@ -7,7 +7,7 @@ function RegisterPage(){
     // DECLARATIVE FORM OF PROGRAMMING
     // eslint-disable-next-line
     const [ globalData, dispatch ] = useGlobalStore();
-    const [ userData, setUserData ] = useState({ name: "", email: "", password: ""});
+    const [ userData, setUserData ] = useState({ firstname: "", lastname: "", email: "", password: ""});
     const [ isRegistered, setIsRegistered ] = useState( false );
 
     const inputEmail = useRef();

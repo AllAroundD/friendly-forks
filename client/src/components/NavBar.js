@@ -92,15 +92,19 @@ function NavBar() {
         <nav className="w3-sidebar w3-light-green w3-collapse w3-top w3-large w3-padding" style={{zIndex:'3', width: '300px', fontWeight: 'bold'}}><br />
             <a href="javascript:void(0)" onclick="closeSidebar()" className="w3-button w3-hide-large w3-display-topleft" style={{width: '100%', fontSize: '22px'}} />
             <div className="w3-container">
-                <h3 className="w3-padding-64"><br />Company<br />Name<br /></h3>
+                <h3 className="w3-padding-64"><br />Friendly<br />Forks<br /></h3>
             </div>
             <div className="w3-bar-block">
                 <a href="#" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Home</a> 
                 <a href="#showcase" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Showcase</a> 
                 <a href="#services" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Services</a> 
                 <a href="#designers" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Designers</a> 
-                <a href="#packages" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Packages</a> 
-                <a href="#contact" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Contact</a>
+                { localStorage.session ? 
+                <a href="/profile" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Profile</a>
+                :
+                ''
+                } 
+                <a href="/about" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">About</a>
                 { localStorage.session ? 
                 <a href="/logout" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Logout</a>
                 :
@@ -112,7 +116,7 @@ function NavBar() {
         {/* Adjustment for smaller screens */}
         <header class="w3-container w3-top w3-hide-large w3-light-green w3-xlarge w3-padding">
         <a href="javascript:void(0)" class="w3-button w3-light-green w3-margin-right" onclick="openSidebar()">☰</a>
-        <span>Company Name</span>
+        <span>Friendly Forks</span>
         </header>
 
         {/* Overlay effect when opening sidebar on small screens */}
