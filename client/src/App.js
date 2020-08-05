@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import './App.css'
 
 function App() {
+    
     return (
         <GlobalStore> {/* provides common elements across components */}
             <Router>
