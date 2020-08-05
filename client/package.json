@@ -2,7 +2,7 @@
   "name": "friendlyforks",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "proxy": "http://localhost:8080/",
   "dependencies": {
     "mysql2": "^2.1.0",
     "react": "^16.6.3",

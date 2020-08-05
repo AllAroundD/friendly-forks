@@ -39,7 +39,7 @@ function NavBar() {
 
             } else {
                 dispatch( { do: 'setMessage', type: 'danger', message: apiServerStatus.error } );
-                console.log( '[App] Crap server is not running, show an error...' );
+                console.log( '[App] Server is not running, show an error...' );
             }
         } catch( e ){
             dispatch( { do: 'setMessage', type: 'danger', message: 'Server down...' } );

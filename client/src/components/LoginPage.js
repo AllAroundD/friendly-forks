@@ -63,8 +63,9 @@ function LoginPage(){
             localStorage.session = '';
             return;
         };
-
+        
         loginComplete( apiResult );
+        console.log('login is Complete...')  
     }
 
     return (

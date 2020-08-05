@@ -10,11 +10,9 @@ async function loginUser( email, password, session ) {
     if( !session ) {
        return { error: 'System error (session-not-given)' };
     }
-    console.log('[loginUser] checking user email: ', email)
-    // const userData = await db.users.findOne({ email: email }, '-createdAt -updatedAt');
     
     const userData = await userModel.getLoginCredentials(email)
-    console.log( `[loadUser] email='${email}' userData:`, userData );
+    console.log( `[loginModel loginUser] email='${email}' userData:`, userData );
 
 
     if( !userData ) {
@@ -32,25 +30,23 @@ async function loginUser( email, password, session ) {
     userData.session = session;
  
     // update the session
-    // remove entries before we do teh update
-   //  const dbResult = await db.users.findOneAndUpdate( { _id: userData._id}, userData );
     const dbResult = await userModel.updateSession(userData[0].userEmail, session);
 
     // remap the data into the specified fields as we are using camelCase
     if( !dbResult ) {
        return {
-          error: `Sorry problems logging in ${userData.name}`
+          error: `Sorry, problems logging in ${userData[0].firstName.concat(userData[0].lastName)}`
        };
     }
  
     return {
-       message: `Logging in ${userData.name}...`,
-       id: userData._id,
-       name: userData.name,
-       email: userData.email,
-       thumbnail: userData.thumbnail,
-       session: userData.session,
-       createdAt: userData.createdAt
+       message: `Logging in ${userData[0].firstName} ${userData[0].lastName}...`,
+       id: userData[0].id,
+       name: userData[0].firstName.concat(userData[0].lastName),
+       email: userData[0].userEmail,
+       thumbnail: userData[0].thumbnail,
+       session: userData[0].session,
+       createdAt: userData[0].createdAt
     }
  }
 
@@ -61,6 +57,14 @@ async function checkSession( session ){
    const userData = await userModel.checkSession(session);
    console.log( `[checkSession] session(${session}) -> valid? ${userData.id ? true : false}` );
    return( userData.id ? true : false );
+}
+
+// input: session
+// output: boolean
+async function logoutUser( session ){
+   const userData = await userModel.updateSession(userData[0].userEmail, '');
+   console.log( `[logoutUser] session(${session})`, userData );
+   return true; //( userData._id ? true : false );
 }
 
  module.exports = {loginUser, checkSession};

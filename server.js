@@ -2,7 +2,8 @@ require('dotenv').config() // --> process.env
 const express = require("express")
 const path = require("path")
 const fs = require('fs')
-const PORT = process.env.PORT || 3001
+// const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 8080
 const app = express()
 const logger = require('morgan');
 const uuid = require( 'uuid' )
@@ -79,8 +80,8 @@ app.post('/api/user/login', async function( req,res ){
   const session = uuid.v4()
   console.log('[POST: /api/user/login] session: ', session )
   const loginResult = await login.loginUser( userData.email, userData.password, session )
-  // const loginResult = await login.loginUser( req.body.email, req.body.password, session )
   loginResult.rememberMe = req.body.rememberMe
+  console.log(`[server.js] sending loginResult `, loginResult)
   res.send( loginResult )
 })
 
