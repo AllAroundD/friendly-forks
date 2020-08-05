@@ -67,10 +67,10 @@ function OAuth( props ){
     return (
         <div class="card">
             <div class="card-body d-flex justify-content-center">
-                {props.providers.map( provider=>
+                {props.providers.map( providers=>
 
-                    <button onClick={()=>openOAuth(provider)} class='btn btn-outline-primary' style={{marginRight:'10px'}}>
-                        <i className={`fab ${icons[provider]} fa-3x`}></i>
+                    <button onClick={()=>openOAuth(providers)} class='btn btn-outline-primary' style={{marginRight:'10px'}}>
+                        <i className={`fa ${icons[providers]} fa-3x`} aria-hidden="true"></i>
                     </button>
                 )}
             </div>
