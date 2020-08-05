@@ -74,51 +74,65 @@ function NavBar() {
         prevLocation = location.pathname;
     }
 
+    //Open sidebar menu
+    function openSidebar() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
+    
+    //Close sidebar menu
+    function closeSidebar() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+    }
+
     return (
-    <>
+    <div>
     { invalidSession ? <Redirect to='/login' /> : '' }
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <NavLink to="/" className="navbar-brand">
+    {/* <Nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <NavLink to="/" classNameName="navbar-brand">
             <img src='https://upload.wikimedia.org/wikipedia/commons/7/79/Mountain_icon_%28Noun_Project%29.svg' alt="" style={style.logo} />
         </NavLink>
-        {/* <a class="navbar-brand" href="#" onClick={ function(){ props.changePage('AboutPage')} }>Pupster</a> */}
-        <button onClick={() => setShowMenu(!showMenu)} class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <a className="navbar-brand" href="#" onClick={ function(){ props.changePage('AboutPage')} }>Pupster</a>
+        <button onClick={() => setShowMenu(!showMenu)} className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+        </button> */}
 
-        <div className={'collapse navbar-collapse '+(showMenu ? 'show' : '')} id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li className="nav-item">
-                    <NavLink to="/productlist" className="nav-link" activeClassName="active">Product List</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to="/productadd" className="nav-link" activeClassName="active">Product Add</NavLink>
-                </li>
-                <li className="nav-item">
-                    <NavLink to="/settings" className="nav-link" activeClassName="active">Settings</NavLink>
-                </li>
-                { localStorage.session ?
-                    <li className="nav-item">
-                        <NavLink to="/logout" className="nav-link">Logout</NavLink>
-                    </li>
-                    :
-                    <li className="nav-item">
-                        <NavLink to="/login" className="nav-link">Login</NavLink>
-                    </li>
-                }
-            </ul>
-        </div>
-    </nav>
+        <nav className="w3-sidebar w3-light-green w3-collapse w3-top w3-large w3-padding" style={{zIndex:'3', width: '300px', fontWeight: 'bold'}}><br />
+            <a href="javascript:void(0)" onclick="closeSidebar()" className="w3-button w3-hide-large w3-display-topleft" style={{width: '100%', fontSize: '22px'}} />
+            <div className="w3-container">
+                <h3 className="w3-padding-64"><br />Company<br />Name<br /></h3>
+            </div>
+            <div className="w3-bar-block">
+                <a href="#" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Home</a> 
+                <a href="#showcase" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Showcase</a> 
+                <a href="#services" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Services</a> 
+                <a href="#designers" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Designers</a> 
+                <a href="#packages" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Packages</a> 
+                <a href="#contact" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Contact</a>
+            </div>
+        </nav>
 
-    <div class='container'>
-        {/* show user session info */}
-        { globalData.name ? <div class='d-block'>{ globalData && globalData.thumbnail ? <img src={globalData.thumbnail} id='navThumbnail' alt=''/> : '' } Welcome {globalData.name}</div> : '' }
-        {/* show a global message bar below the nav */}
-        <div className={ globalData.messageType ? `alert alert-${globalData.messageType}` : 'd-hide' } role="alert">
-            {globalData.message}
+        {/* Adjustment for smaller screens */}
+        <header class="w3-container w3-top w3-hide-large w3-light-green w3-xlarge w3-padding">
+        <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="openSidebar()">☰</a>
+        <span>Company Name</span>
+        </header>
+
+        {/* Overlay effect when opening sidebar on small screens */}
+        <div class="w3-overlay w3-hide-large" onclick="closeSidebar()" style={{cursor: 'pointer'}} title="close side menu" id="myOverlay"></div>
+                <div className='container'>
+
+            {/* show user session info */}
+            { globalData.name ? <div className='d-block'>{ globalData && globalData.thumbnail ? <img src={globalData.thumbnail} id='navThumbnail' alt=''/> : '' } Welcome {globalData.name}</div> : '' }
+            {/* show a global message bar below the nav */}
+            <div classNameName={ globalData.messageType ? `alert alert-${globalData.messageType}` : 'd-hide' } role="alert">
+                {globalData.message}
+            </div>
         </div>
     </div>
-    </>
+
+
     );
 }
 
