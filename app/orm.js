@@ -28,9 +28,9 @@ class DB {
         })
     }
 
-    insertOne(tableName, value) {
+    insertOne(tableName, column, value) {
         return new Promise((resolve, reject) => {
-            this.connection.query("INSERT INTO ?? SET ?", [tableName, value], function (err, rows) {
+            this.connection.query("INSERT INTO ?? (?) VALUES (?)", [tableName, column, value], function (err, rows) {
                 if (err) reject(err);
                 resolve(rows);
             })
