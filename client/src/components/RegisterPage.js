@@ -7,40 +7,67 @@ function RegisterPage(){
     // DECLARATIVE FORM OF PROGRAMMING
     // eslint-disable-next-line
     const [ globalData, dispatch ] = useGlobalStore();
-    const [ userData, setUserData ] = useState({ firstname: "", lastname: "", email: "", password: ""});
+    const [ userData, setUserData ] = useState({ firstName: "", lastName: "", userEmail: "", password: "", userAddress: "", userLocation: "", userNotes: ""});
     const [ isRegistered, setIsRegistered ] = useState( false );
 
-    const inputEmail = useRef();
-    const inputPassword = useRef();
+    const inputFirstName = useRef()
+    const inputLastName = useRef()
+    const inputEmail = useRef()
+    const inputAddress = useRef()
+    const inputLocation = useRef()
+    const inputNotes = useRef()
+    const inputPassword = useRef()
 
     function handleInputChange( e ){
-        const { id, value } = e.target; //
+        const { id, value } = e.target //
 
-        setUserData( { ...userData, [id]: value } );
+        setUserData( { ...userData, [id]: value } )
     }
 
     async function registerUser( e ){
         e.preventDefault();
         
-        if( userData.email.trim() === "" ||
+        if( inputFirstName.current.value.trim() === "" ) {
+            inputFirstName.current.focus();
+            dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a first name' } )
+            return
+        }
+        if( inputLastName.current.value.trim() === "" ) {
+            inputLastName.current.focus();
+            dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a last name' } )
+            return
+        }
+        if( inputEmail.current.value.trim() === "" ||
             // eslint-disable-next-line
-            !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(userData.email)) ) {
-            inputEmail.current.focus();
-            dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a valid email' } );
-            return;
+            !(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(inputEmail.current.value)) ) {
+            inputEmail.current.focus()
+            dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a valid email' } )
+            return
         }
 
-        if( userData.password.trim() === "" ) {
+        if( inputPassword.current.value.trim() === "" ) {
             inputPassword.current.focus();
-            dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a password' } );
-            return;
+            dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a password' } )
+            return
         }
 
-        if( userData.password.trim().length < 8 ) {
+        if( inputPassword.current.value.trim().length < 8 ) {
             inputPassword.current.focus();
-            dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a longer password (8 characters min)!' } );
-            return;
+            dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a longer password (8 characters min)!' } )
+            return
         }
+
+        if( inputAddress.current.value.trim() === "" ) {
+            inputAddress.current.focus();
+            dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide an address' } )
+            return
+        }
+        if( inputLocation.current.value.trim() === "" ) {
+            inputLocation.current.focus();
+            dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a location' } )
+            return
+        }
+
 
         const apiResult = await API.post('/api/user/register', userData);
                   
@@ -64,8 +91,8 @@ function RegisterPage(){
 
             <div class="container">
                 <h1>User Registration</h1>
-                <div class="card">
-                    <div class="card-header">
+                {/* <div class="card">
+                    <div class="card-header"> */}
                     Register
                     </div>
                     <div class="card-body">
@@ -73,11 +100,19 @@ function RegisterPage(){
                         <input type='hidden' id='db_id' value='' />
                         <div class="form-group">
                             <label for="firstName">First Name</label>
-                            <input value={userData.firstName} onChange={handleInputChange} id='firstName' type="text" class="form-control" />
+                            <input value={userData.firstName} 
+                                onChange={handleInputChange} 
+                                id='firstName' 
+                                ref={inputFirstName}
+                                type="text" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="LastName">Last Name</label>
-                            <input value={userData.lastName} onChange={handleInputChange} id='lastName' type="text" class="form-control" />
+                            <input value={userData.lastName} 
+                                onChange={handleInputChange} 
+                                id='lastName' 
+                                ref={inputLastName}
+                                type="text" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
@@ -85,7 +120,7 @@ function RegisterPage(){
                                 value={userData.email} 
                                 onChange={handleInputChange} 
                                 ref={inputEmail}
-                                id="email" type="email" class="form-control" />
+                                id="userEmail" type="email" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="userPassword">Password</label>
@@ -97,23 +132,31 @@ function RegisterPage(){
                         </div>
                         <div class="form-group">
                             <label for="name">Address</label>
-                            <input value={userData.address} onChange={handleInputChange} id='address' type="text" class="form-control" />
+                            <input value={userData.address} 
+                                onChange={handleInputChange} 
+                                id='userAddress' 
+                                ref={inputAddress}
+                                type="text" class="form-control" />
                         </div>
                         <div class="form-group">
                             <label for="location">Location</label>
-                            <input value={userData.location} onChange={handleInputChange} id='location' type="text" class="form-control" />
+                            <input value={userData.location} 
+                                onChange={handleInputChange} 
+                                id='userLocation'
+                                ref={inputLocation} 
+                                type="text" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="notes">Notes: (Please add any notes we should know about you ie: dietary restrictions, what you like to cook? what you like to eat? are you social? etc etc. )</label>
-                            <textarea value={userData.notes} onChange={handleInputChange} id='notes' type="text"  placeholder="notes" class="form-control" />
+                            <label for="UserNotes">Notes: (Please add any notes we should know about you ie: dietary restrictions, what you like to cook? what you like to eat? are you social? etc etc. )</label>
+                            <textarea value={userData.notes} onChange={handleInputChange} id='userNotes' type="text"  placeholder="notes" class="form-control" />
                         </div>
-
+                        <input type="hidden" id="thumbnail" value="" />
                         <button onClick={registerUser} class="btn btn-primary submit" >Register</button>
                         &nbsp; &nbsp; <a href="/login" class='font-weight-light text-muted'>Already Registered?</a>
                     </form>
                     </div>
-                </div>
-            </div>
+                {/* </div>
+            </div> */}
         </div>
     )
 }

@@ -48,8 +48,8 @@ class DB {
     }
 
     addUser(userData) {
-        const queryString = `INSERT INTO users (firstName, lastName, profilePicture, userEmail, userLocation, userAddress, userNotes)
-        VALUES ('${userData.firstName}', '${userData.lastName}', '${userData.profilePicture}', '${userData.userEmail}, '${userData.userLocation}, '${userData.userAddress}', '${userData.userNotes}')`
+        const queryString = `INSERT INTO users (password, firstName, lastName, userEmail, userLocation, userAddress, userNotes, thumbnail)
+        VALUES ('${userData.password}', '${userData.firstName}', '${userData.lastName}', '${userData.userEmail}', '${userData.userLocation}', '${userData.userAddress}', '${userData.userNotes}','${userData.thumbnail}')`
         console.log(`[addUser] queryString`, queryString)
         return new Promise ((resolve, reject) => {
             this.connection.query(queryString, function(err, rows) {

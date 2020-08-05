@@ -118,6 +118,14 @@ class UserModel {
         return userData
     }
 
+        
+    async addUser(userData) {
+        console.log('[UserModel] addUser: ',userData)
+        let db = new DB ("friendlyforks_db")
+        let result = await db.addUser(userData);
+        await db.closeDB()
+        return result
+    }
 }
 
 module.exports = UserModel
