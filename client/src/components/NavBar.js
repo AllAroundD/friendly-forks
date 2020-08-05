@@ -115,7 +115,7 @@ function NavBar() {
 
         {/* Adjustment for smaller screens */}
         <header class="w3-container w3-top w3-hide-large w3-light-green w3-xlarge w3-padding">
-        <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="openSidebar()">☰</a>
+        <a href="javascript:void(0)" class="w3-button w3-light-green w3-margin-right" onclick="openSidebar()">☰</a>
         <span>Company Name</span>
         </header>
 

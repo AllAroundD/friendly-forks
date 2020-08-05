@@ -13,7 +13,7 @@ const EventBox = () => {
                         <li class="list-group-item">Date and Time</li>
                         <li class="list-group-item">Location</li>
                     </ul>
-                    <button type="button" class="btn btn-success">Request Seat!</button>
+                    <button type="button" class="btn btn-primary">Request Seat!</button>
                 </div>
             </div>
         </div>
