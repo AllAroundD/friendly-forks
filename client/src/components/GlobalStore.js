@@ -9,10 +9,10 @@ let lastDispatcher = { do: '', time: 0 };
 
 function dispatcher(state, action) {
     console.log(`[dispatcher] called with ${action.do}`);
-    if (action.do === lastDispatcher.do && (Date.now() - lastDispatcher.time) < 1000) {
-        console.log(`.. dispatch times too close for ${action.do}; ignoring it.`);
-        return state;
-    }
+    // if (action.do === lastDispatcher.do && (Date.now() - lastDispatcher.time) < 1000) {
+    //     console.log(`.. dispatch times too close for ${action.do}; ignoring it.`);
+    //     return state;
+    // }
     lastDispatcher = { do: action.do, time: Date.now() };
 
     let newState = { ...state };

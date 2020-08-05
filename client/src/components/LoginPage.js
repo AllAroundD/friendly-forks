@@ -38,6 +38,8 @@ function LoginPage(){
             dispatch( { do: 'clearMessage' } );
             dispatch( { do: 'loginState', loggedIn: true })
             }, 3000 );
+
+        console.log(`[LoginPage.js] loginComplete`)
     }
 
     async function loginUser( e ){
