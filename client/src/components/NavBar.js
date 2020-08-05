@@ -110,6 +110,11 @@ function NavBar() {
                 <a href="#designers" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Designers</a> 
                 <a href="#packages" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Packages</a> 
                 <a href="#contact" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Contact</a>
+                { localStorage.session ? 
+                <a href="/logout" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Logout</a>
+                :
+                <a href="/login" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Login</a>
+                } 
             </div>
         </nav>
 
@@ -130,6 +135,8 @@ function NavBar() {
                 {globalData.message}
             </div>
         </div>
+                 
+
     </div>
 
 
