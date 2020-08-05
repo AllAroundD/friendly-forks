@@ -87,9 +87,22 @@ class UserModel {
         return userData
     }
 
+    async clearSession(session) {
+        let db = new DB ("friendlyforks_db")
+        const queryString = `UPDATE users SET session='' WHERE session='${session}'`
+        console.log('queryString: ',queryString)
+        let updateResult = await db.query(queryString)
+
+        await db.closeDB()
+        return true
+    }
+
     async checkSession(session) {
         let db = new DB ("friendlyforks_db")
-        let userData = await db.selectOne("users","users.session", session)
+        // let userData = await db.selectOne("users","users.session", session)
+        const queryString = `SELECT * FROM users WHERE session='${session}'`
+        console.log('queryString: ',queryString)
+        let userData = await db.query(queryString)
         await db.closeDB()
         return userData
     }

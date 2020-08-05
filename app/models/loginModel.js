@@ -27,7 +27,7 @@ async function loginUser( email, password, session ) {
     }
  
     // add the suggested session to the user.
-    userData.session = session;
+    userData[0].session = session;
  
     // update the session
     const dbResult = await userModel.updateSession(userData[0].userEmail, session);
@@ -56,15 +56,15 @@ async function loginUser( email, password, session ) {
 async function checkSession( session ){
    const userData = await userModel.checkSession(session);
    console.log( `[checkSession] session(${session}) -> valid? ${userData.id ? true : false}` );
-   return( userData.id ? true : false );
+   return( userData[0].id ? true : false );
 }
 
 // input: session
 // output: boolean
 async function logoutUser( session ){
-   const userData = await userModel.updateSession(userData[0].userEmail, '');
-   console.log( `[logoutUser] session(${session})`, userData );
+   let updateResult = await userModel.clearSession(session);
+   console.log( `[logoutUser] session(${session})`, updateResult );
    return true; //( userData._id ? true : false );
 }
 
- module.exports = {loginUser, checkSession};
+ module.exports = {loginUser, checkSession, logoutUser};

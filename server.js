@@ -87,7 +87,7 @@ app.post('/api/user/login', async function( req,res ){
 
 app.post('/api/user/logout', needSession, async function( req,res ){
   console.log( '[POST: /api/user/logout] userData: ' )
-  const logoutResult = await orm.logoutUser( req.headers.session )
+  const logoutResult = await login.logoutUser( req.headers.session )
   res.send( logoutResult )
 })
 
