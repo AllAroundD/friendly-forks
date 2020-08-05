@@ -4,7 +4,7 @@ import API from "./API";
 import { useGlobalStore } from "./GlobalStore";
 import OAuth from "./OAuth";
 
-function LoginPage(props){
+function LoginPage(){
     // DECLARATIVE FORM OF PROGRAMMING
     // TODO remove hard-coding once ready
     // const [ userData, setUserData ] = useState({ name: "", email: localStorage.email, password: "", rememberMe: true });
@@ -33,11 +33,13 @@ function LoginPage(props){
 
         // remember the user session + data
         dispatch( { do: 'setUserData', data: loginData } );
-        props.loginComplete()
+
         setTimeout( function(){ 
             dispatch( { do: 'clearMessage' } );
             dispatch( { do: 'loginState', loggedIn: true })
-            }, 3000 )
+            }, 3000 );
+
+        console.log(`[LoginPage.js] loginComplete`)
     }
 
     async function loginUser( e ){
@@ -70,6 +72,7 @@ function LoginPage(props){
 
     return (
         <div>
+            { globalData.loggedIn ? <Redirect to='/landing' /> : '' }       {/* added landing */} {/*//TODO set page to landing page */}
 
             <hr />
             <h1>Login</h1>
