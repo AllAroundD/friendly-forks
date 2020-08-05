@@ -40,7 +40,7 @@ function LogoutPage(){
         <div>
             { globalData.loggedIn ? '' : <Redirect to='/login' /> }
 
-\            <section class="jumbotron text-center">
+            <section class="jumbotron text-center">
                 <div class="container">
                     <p class="lead text-muted">Please wait, logging out...</p>
                 </div>

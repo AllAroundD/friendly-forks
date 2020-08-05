@@ -8,7 +8,7 @@ function LoginPage(){
     // DECLARATIVE FORM OF PROGRAMMING
     // TODO remove hard-coding once ready
     // const [ userData, setUserData ] = useState({ name: "", email: localStorage.email, password: "", rememberMe: true });
-    const [ userData, setUserData ] = useState({ name: "", email: 'john.doe@gmail.com', password: "testing123", rememberMe: false });
+    const [ userData, setUserData ] = useState({ name: "JohnDoe", email: 'john.doe@gmail.com', password: "testing123", rememberMe: false });
     const [ globalData, dispatch ] = useGlobalStore();
 
     const inputEmail = useRef();
@@ -63,8 +63,9 @@ function LoginPage(){
             localStorage.session = '';
             return;
         };
-
+        
         loginComplete( apiResult );
+        console.log('login is Complete...')  
     }
 
     return (
