@@ -91,16 +91,6 @@
   box-sizing: border-box;
 }
 
-html{
-  height: 100%;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-}
-
-body{
-  height: 100%;
-}
-
 .hero-section{
   align-items: flex-start;
   display: flex;
