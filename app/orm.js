@@ -60,8 +60,8 @@ class DB {
     }
 
     updateUser(userData) {
-        const queryString = `UPDATE events SET firstName=${userData.firstName}, lastName=${userData.lastName}, profilePicture=${userData.profilePicture}, 
-        userEmail=${userData.userEmail}, userLocation=${userData.userLocation}, userAddress=${userData.userAddress}, userNotes=${userData.userNotes} WHERE id=${id}`
+        const queryString = `UPDATE users SET firstName='${userData.firstName}', lastName='${userData.lastName}', 
+        userEmail='${userData.userEmail}', userLocation='${userData.userLocation}', userAddress='${userData.userAddress}', userNotes='${userData.userNotes}', thumbnail='${userData.thumbnail}' WHERE id=${userData.id}`
         console.log(`[updateUser] queryString`, queryString);
         return new Promise ((resolve, reject) => {
             this.connection.query(queryString, function (err, rows) {

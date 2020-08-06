@@ -101,6 +101,14 @@ app.post('/api/user/login', async function( req,res ){
   res.send( loginResult )
 })
 
+app.post('/api/user/save', async function( req,res ){
+  const userData = req.body
+  console.log( '[POST: /api/user/save] userData: ', userData[0] )
+  const saveResult = await user.saveUser( userData[0] )
+  res.send( saveResult )
+})
+
+
 app.get('/api/user/session', needSession, async function( req,res ){
   const session = req.headers.session
   console.log( '[POST: /api/user/session] userSession: ', session )
