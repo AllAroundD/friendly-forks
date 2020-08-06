@@ -12,7 +12,7 @@ async function loginUser( email, password, session ) {
     }
     
     const userData = await userModel.getLoginCredentials(email)
-    console.log( `[loginModel loginUser] email='${email}' userData:`, userData );
+   //  console.log( `[loginModel loginUser] email='${email}' userData:`, userData );
 
 
     if( !userData ) {
@@ -21,7 +21,7 @@ async function loginUser( email, password, session ) {
 
    //  console.log( ` [loginUser] checking password (password: ${password} ) hash(${userData[0].password})` ); 
     const isValidPassword = await bcrypt.compare( password, userData[0].password );
-    console.log( ` [loginUser] checking password (password: ${password} ) hash(${userData[0].password})`, isValidPassword );
+   //  console.log( ` [loginUser] checking password (password: ${password} ) hash(${userData[0].password})`, isValidPassword );
     if( !isValidPassword ) {
        return { error: 'Invalid password' };
     }
@@ -40,9 +40,9 @@ async function loginUser( email, password, session ) {
     }
  
     return {
-       message: `Logging in ${userData[0].firstName} ${userData[0].lastName}...`,
+       message: `Logging in ${userData[0].firstName}...`,
        id: userData[0].id,
-       name: userData[0].firstName.concat(userData[0].lastName),
+       name: userData[0].firstName,
        email: userData[0].userEmail,
        thumbnail: userData[0].thumbnail,
        session: userData[0].session,
@@ -55,7 +55,7 @@ async function loginUser( email, password, session ) {
 // output: boolean
 async function getUserInfo( session ){
    const userData = await userModel.getUserInfo( session );
-   console.log( `[getUserInfo] session(${session})`,userData );
+   // console.log( `[getUserInfo] session(${session})`,userData );
    return( userData )
 }
 
@@ -71,7 +71,7 @@ async function logoutUser( session ){
 // output: boolean
 async function checkSession( session ){
    const userData = await userModel.checkSession(session);
-   console.log( `[checkSession] session(${session}) -> valid? ${userData.id ? true : false}` );
+   // console.log( `[checkSession] session(${session}) -> valid? ${userData.id ? true : false}` );
    return( userData[0].id ? true : false )
 }
 

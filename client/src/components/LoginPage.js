@@ -39,7 +39,7 @@ function LoginPage(){
             dispatch( { do: 'loginState', loggedIn: true })
             }, 3000 );
 
-        console.log(`[LoginPage.js] loginComplete`)
+        // console.log(`[LoginPage.js] loginComplete`)
     }
 
     async function loginUser( e ){
@@ -58,7 +58,7 @@ function LoginPage(){
 
         console.log(`[loginUser] before /api/user/login (userData)`, userData )
         const apiResult = await API.post( '/api/user/login', userData );
-        console.log('user is logging in...')     
+        // console.log('user is logging in...')     
         if( apiResult.error ){
             dispatch( { do: 'setMessage', type: 'danger', message: apiResult.error } );
             // clear any session
@@ -67,7 +67,7 @@ function LoginPage(){
         };
         
         loginComplete( apiResult );
-        console.log('login is Complete...')  
+        // console.log('login is Complete...')  
     }
 
     return (

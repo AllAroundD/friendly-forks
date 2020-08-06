@@ -7,8 +7,8 @@ function UserProfile() {
     const [ globalData, dispatch ] = useGlobalStore()
     // console.log( `[UserProfile] globalData:`, globalData )
     const [ isSaved, setIsSaved ] = useState( false )
-    let [ userData, setUserData ] = useState([])
-    const [ values, setValues ] = useState([])
+    let [ userData, setUserData ] = useState({})
+    // const [ values, setValues ] = useState([])
 
     const inputFirstName = useRef()
     const inputLastName = useRef()
@@ -24,13 +24,18 @@ function UserProfile() {
         return apiResult
     }
 
+<<<<<<< HEAD
     async function collectInputData(userData) {
+=======
+    async function getUserData(userData){
+>>>>>>> master
         inputFirstName.current.value = userData[0].firstName
         inputLastName.current.value = userData[0].lastName
         inputEmail.current.value = userData[0].userEmail
         inputAddress.current.value = userData[0].userAddress
         inputLocation.current.value = userData[0].userLocation
         inputNotes.current.value = userData[0].userNotes
+<<<<<<< HEAD
     }
 
     // let userData
@@ -45,6 +50,24 @@ function UserProfile() {
         // inputAvatar.current.value = userData[0].thumbnail
         collectInputData(userData)
         setUserData (userData)
+=======
+        // inputAvatar.current.value = userData[0].thumbnail
+        // setUserData (userData)
+    }
+    // let userData
+    // at startup we initialize a few things
+    useEffect( async function(){
+
+        //TODO move to function and then call function, then call function at the end of submit
+        userData = await getUser(localStorage.session)
+        // setValues(userData[0])
+        console.log('[UserProfile] userData ', userData[0])
+
+        // // inputAvatar.current.value = userData[0].thumbnail
+        // setUserData (userData)
+        getUserData(userData)
+        setUserData (userData[0])
+>>>>>>> master
     }, [] )
 
     // function previewImg(event) {
@@ -57,24 +80,15 @@ function UserProfile() {
     // }
 
     function handleInputChange( e ){
-        const { id, value } = e.target //
-
-        setUserData( { ...userData, [id]: value } )
-        // setUserData ( {...userData, 
-        //     [firstName]: inputEmail.current.value, 
-        //     [lastName]: inputFirstName.current.value, 
-        //     [userEmail]: inputEmail.current.value, 
-        //     // password: "", 
-        //     [userAddress]: inputAddress.current.value, 
-        //     [userLocation]: nputLocation.current.value, 
-        //     [userNotes]: inputNotes.current.value
-        //     })
+        const { name, value } = e.target //
+        setUserData( { ...userData, [name]: value } )
     }
 
+    // this is called when user clicks the Save button
     async function saveUser( e ){
-        e.preventDefault();
-        
-        setUserData( { ...userData })
+        e.preventDefault()
+        console.log('[saveUser] userData: ', userData)
+
         if( inputFirstName.current.value.trim() === "" ) {
             inputFirstName.current.focus();
             dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a first name' } )
@@ -93,6 +107,7 @@ function UserProfile() {
             return
         }
 
+        // TODO: ice-ing idea to update password
         // if( inputPassword.current.value.trim() === "" ) {
         //     inputPassword.current.focus();
         //     dispatch( { do: 'setMessage', type: 'danger', message: 'Please provide a password' } )
@@ -116,17 +131,15 @@ function UserProfile() {
             return
         }
 
-        console.log ('[saveUser] userData', userData)
+
+        // console.log ('[saveUser] userData', userData)
         const apiResult = await API.post('/api/user/save', userData);
-        console.log ('[saveUser] apiResult', apiResult)
+        // console.log ('[saveUser] apiResult', apiResult)
 
         if( apiResult.error ){
             dispatch( { do: 'setMessage', type: 'danger', message: apiResult.error } );
             return;
         }
-
-        // // remember the email
-        // localStorage.email = apiResult.rememberMe ? apiResult.email : '';
 
         dispatch( { do: 'setMessage', type: 'success', message: 'Your profile has been successfully saved' } );
 
@@ -134,20 +147,16 @@ function UserProfile() {
         setTimeout( function(){ setIsSaved(true); }, 5000 );
     }
 
-
-
-
-
     return (
         <div style={{marginTop: '150px'}}>  
             {/* first name last name inputs and save button */}
             <p>What is your first name and last name?</p>
             <div class="input-group">
-                <input type="text" aria-label="First name" ref={inputFirstName}  
-                    // onChange={handleInputChange} 
+                <input type="text" aria-label="First name" id="firstName" name="firstName" ref={inputFirstName}  
+                    onChange={handleInputChange} 
                     class="form-control" />
-                <input type="text" aria-label="Last name" ref={inputLastName}  
-                    // onChange={handleInputChange} 
+                <input type="text" aria-label="Last name" id="lastName" name="lastName" ref={inputLastName}  
+                    onChange={handleInputChange} 
                     class="form-control" />
             </div>
             {/* <button type="button" class="btn btn-primary">Save</button> */}
@@ -155,8 +164,8 @@ function UserProfile() {
             {/* email inputs and save button */}
             <p>What is your email?</p>
             <div class="input-group">
-                <input type="text" aria-label="Email" ref={inputEmail} 
-                // onChange={handleInputChange} 
+                <input type="text" aria-label="Email" id="userEmail" name="userEmail" ref={inputEmail} 
+                onChange={handleInputChange} 
                 class="form-control" />
             </div>
             {/* <button type="button" class="btn btn-primary">Save</button> */}
@@ -164,8 +173,8 @@ function UserProfile() {
             {/* address inputs and save button */}
             <p>What is your address (please include special instructions if relevant)?</p>
             <div class="input-group">
-                <input type="text" aria-label="Address" ref={inputAddress}  class="form-control" 
-                // onChange={handleInputChange} 
+                <input type="text" aria-label="Address" id="userAddress" name="userAddress" ref={inputAddress}  class="form-control" 
+                onChange={handleInputChange} 
                 />
             </div>
             {/* <button type="button" class="btn btn-primary">Save</button> */}
@@ -173,13 +182,14 @@ function UserProfile() {
             {/* location (nearest intersection) and save button */}
             <p>What is your closest major intersection?</p>
             <div class="input-group">
-                <input type="text" aria-label="Location" ref={inputLocation}  class="form-control" 
-                // onChange={handleInputChange} 
+                <input type="text" aria-label="Location" id="userLocation" name="userLocation" ref={inputLocation}  class="form-control" 
+                onChange={handleInputChange} 
                 />
             </div>
             {/* <button type="button" class="btn btn-primary">Save</button> */}
 
-            {/* <div class="form-group">
+            {/* TODO ice idea to upload file
+            <div class="form-group">
                         <label for='imageFile'>
                             <h5>Avatar</h5>
                         </label>
@@ -191,8 +201,8 @@ function UserProfile() {
             {/* notes and save button */}
             <p>Please add any notes we should know about you (ie: ...dietary restrictions? ...what you like to cook? ...what you like to eat? ...are you social? etc etc.)</p>
             <div class="input-group input-group-lg">
-                <textarea class="form-control" aria-label="With textarea" ref={inputNotes} 
-                // onChange={handleInputChange}
+                <textarea class="form-control" aria-label="With textarea" id="userNotes" name="userNotes" ref={inputNotes} 
+                onChange={handleInputChange}
                 />
             </div>
             <button onClick={saveUser} type="button" class="btn btn-primary">Save</button>

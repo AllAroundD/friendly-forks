@@ -92,33 +92,33 @@ app.post('/api/user/register', async function( req,res ){
 
 app.post('/api/user/login', async function( req,res ){
   const userData = req.body
-  console.log( '[POST: /api/user/login] userData: ', userData )
+  // console.log( '[POST: /api/user/login] userData: ', userData )
   const session = uuid.v4()
-  console.log('[POST: /api/user/login] session: ', session )
+  // console.log('[POST: /api/user/login] session: ', session )
   const loginResult = await login.loginUser( userData.email, userData.password, session )
   loginResult.rememberMe = req.body.rememberMe
-  console.log(`[server.js] sending loginResult `, loginResult)
+  // console.log(`[server.js] sending loginResult `, loginResult)
   res.send( loginResult )
 })
 
 app.post('/api/user/save', async function( req,res ){
   const userData = req.body
-  console.log( '[POST: /api/user/save] userData: ', userData[0] )
-  const saveResult = await user.saveUser( userData[0] )
+  // console.log( '[POST: /api/user/save] userData: ', userData )
+  const saveResult = await user.saveUser( userData )
   res.send( saveResult )
 })
 
 
 app.get('/api/user/session', needSession, async function( req,res ){
   const session = req.headers.session
-  console.log( '[POST: /api/user/session] userSession: ', session )
+  // console.log( '[POST: /api/user/session] userSession: ', session )
   const userData = await login.getUserInfo( session )
-  console.log(`[server.js] GET /api/user/session `, userData)
+  // console.log(`[server.js] GET /api/user/session `, userData)
   res.send( userData )
 })
 
 app.post('/api/user/logout', needSession, async function( req,res ){
-  console.log( '[POST: /api/user/logout] userData: ' )
+  // console.log( '[POST: /api/user/logout] userData: ' )
   const logoutResult = await login.logoutUser( req.headers.session )
   res.send( logoutResult )
 })
