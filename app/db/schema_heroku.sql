@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS qevfnwrinwa05d1l;
-
-CREATE DATABASE qevfnwrinwa05d1l;
 
 USE qevfnwrinwa05d1l;
 
