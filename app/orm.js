@@ -1,10 +1,10 @@
 const {connectDB, closeDB} = require("./connection")
 const fs = require('fs')
 const dbFile = './medialist.data'
-const UserModel = require('./models/UserModel')
-const EventModel = require('./models/EventModel')
-const userModel = new UserModel()
-const eventModel = new EventModel()
+// const UserModel = require('./models/UserModel')
+// const EventModel = require('./models/EventModel')
+// const userModel = new UserModel()
+// const eventModel = new EventModel()
 
 class DB {
     // constructor() {
