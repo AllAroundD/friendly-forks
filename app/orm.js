@@ -1,7 +1,7 @@
 const {connectDB, closeDB} = require("./connection")
 const fs = require('fs')
 const dbFile = './medialist.data'
-const UserModel = require('./models/userModel')
+const UserModel = require('./models/UserModel')
 const EventModel = require('./models/EventModel')
 const userModel = new UserModel()
 const eventModel = new EventModel()
@@ -84,7 +84,7 @@ class DB {
     }
 
     updateEvent(eventData) {
-        const queryString = `UPDATE events SET eventDate=${eventData.eventDate}, type=${eventData.type}, availableSeats=${eventData.availableSeats}, eventNotes=${eventData.restrictions})`
+        const queryString = `UPDATE events SET eventDate=${eventData.eventDate}, availableSeats=${eventData.availableSeats}, eventNotes=${eventData.restrictions})`
         console.log(`[updateEvent] queryString`, queryString);
         return new Promise ((resolve, reject) => {
             this.connection.query(queryString, function (err, rows) {

@@ -1,19 +1,56 @@
-import React from 'react';
+import API from './API';
+import React, { useEffect, useRef } from "react"
+// const [ eventData ] = useState({ date: "", seats: "", restrictions: "", notes: "" });
 
-const AddEvent = () => {
+const AddEvent = (props) => {
+    // const inputDateTime = useRef()
+    // const inputGuestNumber = useRef()
+    // const inputVegetarian = useRef()
+    // const inputPescatarian = useRef()
+    // const inputVegan = useRef()
+    // const inputHalal = useRef()
+    // const inputKosher = useRef()
+    // const inputGF = useRef()
+    // const inputLI = useRef()
+    // const inputAllergies = useRef()  
+    // const inputNotes = useRef()
+
+    // async function getDietaryRestrictions() {
+    //     const dietaryRestrictions = [];
+    //     if (inputVegetarian) {
+    //         dietaryRestrictions.push(`${inputVegetarian}`);
+    //     } else if (inputPescatarian) {
+    //         dietaryRestrictions.push(`${inputPescatarian}`)
+    //     } else if (inputVegan) {
+    //         dietaryRestrictions.push(`${inputVegan}`)
+    //     } else if (inputHalal) {
+    //         dietaryRestrictions.push(`${inputHalal}`)
+    //     } else if (inputKosher) {
+    //         dietaryRestrictions.push(`${inputKosher}`)
+    //     } else if (inputGF) {
+    //         dietaryRestrictions.push(`${inputGF}`)
+    //     } else if (inputLI) {
+    //         dietaryRestrictions.push(`${inputLI}`)
+    //     } else if (inputAllergies) {
+    //         dietaryRestrictions.push(`${inputAllergies}`)
+    //     }
+    //     json.stringify(dietaryRestrictions);
+    //     return dietaryRestrictions;
+    // };
+
 
     return (
         <div style={{marginTop:'150px'}}>
-            <p>Please Select an Event Date and Time:</p>            
-            <input type="datetime-local" id="birthdaytime" name="birthdaytime" style={{backgroundColor: 'aliceBlue', borderRadius: '5px'}}></input>
+            {/* <p>Please Select an Event Date and Time:</p>            
+            <input type="datetime-local" id="birthdaytime" name="birthdaytime" ref={inputDateTime} style={{backgroundColor: 'aliceBlue', borderRadius: '5px'}}></input>
 
             <p>How many guests would you like to host?</p>
             <form action="/action_page.php">
-                <select name="cars" id="cars" style={{backgroundColor: 'aliceBlue', borderRadius: '5px'}}>
+                <select name="guests" id="guests" ref={inputGuestNumber} style={{backgroundColor: 'aliceBlue', borderRadius: '5px'}}>
                     <option value="volvo" selected disabled>Available Seats:</option>
-                    <option value="saab">1</option>
-                    <option value="opel">2</option>
-                    <option value="audi">3</option>
+                    <option value="one">1</option>
+                    <option value="two">2</option>
+                    <option value="three">3</option>
                 </select>
             </form>
 
@@ -21,19 +58,23 @@ const AddEvent = () => {
             <div class="d-flex justify-content-center" style={{alignItems: 'center'}}>
                 <div className="card d-flex justify-content-center" style={{width: '30vw', padding: '10px'}}>
                     <ul style={{listStyle: 'none', textAlign: 'left'}}>
-                    <li><input type="checkbox" />Vegetarian</li>
-                    <li><input type="checkbox" />Pescatarian</li>
-                    <li><input type="checkbox" />Vegan</li>
-                    <li><input type="checkbox" />Halal</li>
-                    <li><input type="checkbox" />Kosher</li>
-                    <li><input type="checkbox" />Gluten Free</li>
-                    <li><input type="checkbox" />Lactose Interolerance</li>
-                    <li><input type="checkbox" />Allergies (Please include details in your notes!)</li>
+                        <li><input type="checkbox" ref={inputVegetarian} />Vegetarian</li>
+                        <li><input type="checkbox" ref={inputPescatarian} />Pescatarian</li>
+                        <li><input type="checkbox" ref={inputVegan} />Vegan</li>
+                        <li><input type="checkbox" ref={inputHalal} />Halal</li>
+                        <li><input type="checkbox" ref={inputKosher} />Kosher</li>
+                        <li><input type="checkbox" ref={inputGF} />Gluten Free</li>
+                        <li><input type="checkbox" ref={inputLI} />Lactose Interolerant</li>
+                        <li><input type="checkbox" ref={inputAllergies} />Allergies (Please include details in your notes!)</li>
                     </ul>
                 </div>
             </div>
-            <button class="btn btn-primary">Create Event</button>
-        </div>
+            <div class="form-group">
+                <label for="EventNotes">Notes: (Please include any details that may be relevant to your event!)</label>
+                <textarea onChange={handleInputChange} id='eventNotes' type="text"  placeholder="notes" class="form-control" ref={inputNotes}/>
+            </div>
+        <button class="btn btn-primary">Create Event</button> */}
+    </div>
         )
     }
 
