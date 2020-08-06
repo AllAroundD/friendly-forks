@@ -92,7 +92,7 @@ function NavBar() {
         <nav className="w3-sidebar w3-light-green w3-collapse w3-top w3-large w3-padding" style={{zIndex:'3', width: '300px', fontWeight: 'bold'}}><br />
             <a href="javascript:void(0)" onclick="closeSidebar()" className="w3-button w3-hide-large w3-display-topleft" style={{width: '100%', fontSize: '22px'}} />
             <div className="w3-container">
-                <h3 className="w3-padding-64"><br />Friendly<br />Forks<br /></h3>
+                <h2 className="w3-padding-12"><br />Friendly<br />Forks<br /></h2>
             </div>
             <div className="w3-bar-block">
                 <a href="#" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Home</a> 
