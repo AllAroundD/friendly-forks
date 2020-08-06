@@ -1,5 +1,6 @@
 import API from './API';
 import React, { useEffect, useRef } from "react"
+const [ eventData ] = useState({ date: "", seats: "", restrictions: "", notes: "" });
 
 const AddEvent = (props) => {
     const inputDateTime = useRef()
@@ -13,6 +14,30 @@ const AddEvent = (props) => {
     const inputLI = useRef()
     const inputAllergies = useRef()  
     const inputNotes = useRef()
+
+    async function getDietaryRestrictions() {
+        const dietaryRestrictions = [];
+        if (inputVegetarian) {
+            dietaryRestrictions.push(`${inputVegetarian}`);
+        } else if (inputPescatarian) {
+            dietaryRestrictions.push(`${inputPescatarian}`)
+        } else if (inputVegan) {
+            dietaryRestrictions.push(`${inputVegan}`)
+        } else if (inputHalal) {
+            dietaryRestrictions.push(`${inputHalal}`)
+        } else if (inputKosher) {
+            dietaryRestrictions.push(`${inputKosher}`)
+        } else if (inputGF) {
+            dietaryRestrictions.push(`${inputGF}`)
+        } else if (inputLI) {
+            dietaryRestrictions.push(`${inputLI}`)
+        } else if (inputAllergies) {
+            dietaryRestrictions.push(`${inputAllergies}`)
+        }
+        json.stringify(dietaryRestrictions);
+        return dietaryRestrictions;
+    };
+
 
     return (
         <div style={{marginTop:'150px'}}>

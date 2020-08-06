@@ -24,33 +24,13 @@ function UserProfile() {
         return apiResult
     }
 
-<<<<<<< HEAD
-    async function collectInputData(userData) {
-=======
     async function getUserData(userData){
->>>>>>> master
         inputFirstName.current.value = userData[0].firstName
         inputLastName.current.value = userData[0].lastName
         inputEmail.current.value = userData[0].userEmail
         inputAddress.current.value = userData[0].userAddress
         inputLocation.current.value = userData[0].userLocation
         inputNotes.current.value = userData[0].userNotes
-<<<<<<< HEAD
-    }
-
-    // let userData
-    // at startup we initialize a few things
-    useEffect( async function(){
-        //TODO move to function and then call function, then call function at the end of submit
-        userData = await getUser(localStorage.session)
-        setValues(userData[0])
-        console.log('[UserProfile] userData ', userData[0])
-
-        
-        // inputAvatar.current.value = userData[0].thumbnail
-        collectInputData(userData)
-        setUserData (userData)
-=======
         // inputAvatar.current.value = userData[0].thumbnail
         // setUserData (userData)
     }
@@ -67,7 +47,6 @@ function UserProfile() {
         // setUserData (userData)
         getUserData(userData)
         setUserData (userData[0])
->>>>>>> master
     }, [] )
 
     // function previewImg(event) {
