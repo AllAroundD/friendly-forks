@@ -50,7 +50,7 @@ class DB {
     addUser(userData) {
         const queryString = `INSERT INTO users (password, firstName, lastName, userEmail, userLocation, userAddress, userNotes, thumbnail)
         VALUES ('${userData.password}', '${userData.firstName}', '${userData.lastName}', '${userData.userEmail}', '${userData.userLocation}', '${userData.userAddress}', '${userData.userNotes}','${userData.thumbnail}')`
-        console.log(`[addUser] queryString`, queryString)
+        // console.log(`[addUser] queryString`, queryString)
         return new Promise ((resolve, reject) => {
             this.connection.query(queryString, function(err, rows) {
                     if (err) reject(err)
@@ -62,7 +62,7 @@ class DB {
     updateUser(userData) {
         const queryString = `UPDATE users SET firstName='${userData.firstName}', lastName='${userData.lastName}', 
         userEmail='${userData.userEmail}', userLocation='${userData.userLocation}', userAddress='${userData.userAddress}', userNotes='${userData.userNotes}', thumbnail='${userData.thumbnail}' WHERE id=${userData.id}`
-        console.log(`[updateUser] queryString`, queryString);
+        // console.log(`[updateUser] queryString`, queryString);
         return new Promise ((resolve, reject) => {
             this.connection.query(queryString, function (err, rows) {
                 if (err) reject(err)

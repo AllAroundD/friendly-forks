@@ -75,7 +75,7 @@ class UserModel {
         // let updateResult = await db.updateOne("users", { "users.session" : session }, { "users.userEmail": userEmail })
 
         const queryString = `UPDATE users SET session='${session}' WHERE userEmail='${userEmail}'`
-        console.log('queryString: ',queryString)
+        // console.log('queryString: ',queryString)
         let updateResult = await db.query(queryString)
 
         let userData
@@ -90,7 +90,7 @@ class UserModel {
     async clearSession(session) {
         let db = new DB ("friendlyforks_db")
         const queryString = `UPDATE users SET session='' WHERE session='${session}'`
-        console.log('queryString: ',queryString)
+        // console.log('queryString: ',queryString)
         let updateResult = await db.query(queryString)
 
         await db.closeDB()
@@ -101,7 +101,7 @@ class UserModel {
         let db = new DB ("friendlyforks_db")
         // let userData = await db.selectOne("users","users.session", session)
         const queryString = `SELECT * FROM users WHERE session='${session}'`
-        console.log('queryString: ',queryString)
+        // console.log('queryString: ',queryString)
         let userData = await db.query(queryString)
         await db.closeDB()
         return userData
@@ -112,7 +112,7 @@ class UserModel {
         let db = new DB ("friendlyforks_db")
         // let userData = await db.selectOne("users","users.session", session)
         const queryString = `SELECT * FROM users WHERE session='${session}'`
-        console.log('queryString: ',queryString)
+        // console.log('queryString: ',queryString)
         let userData = await db.query(queryString)
         await db.closeDB()
         return userData
@@ -120,7 +120,7 @@ class UserModel {
 
         
     async addUser(userData) {
-        console.log('[UserModel] addUser: ',userData)
+        // console.log('[UserModel] addUser: ',userData)
         let db = new DB ("friendlyforks_db")
         let result = await db.addUser(userData);
         await db.closeDB()
@@ -128,7 +128,7 @@ class UserModel {
     }
 
     async saveUser(userData) {
-        console.log('[UserModel] saveUser: ', userData)
+        // console.log('[UserModel] saveUser: ', userData)
         let db = new DB ("friendlyforks_db")
         let result = await db.updateUser(userData);
         await db.closeDB()
