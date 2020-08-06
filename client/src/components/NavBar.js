@@ -86,6 +86,21 @@ function NavBar() {
     document.getElementById("myOverlay").style.display = "none";
     }
 
+
+    function toggleMenu(){
+        if(this.state.setShowMenu == true){
+            openSidebar()
+    
+        }else{
+            closeSidebar()
+        }
+    
+      
+
+    }
+    
+  
+
     return (
     <div>
     { invalidSession ? <Redirect to='/login' /> : '' }
@@ -94,33 +109,31 @@ function NavBar() {
             <div className="w3-container">
                 <h2 className="w3-padding-12"><br />Friendly<br />Forks<br /></h2>
             </div>
-            <div className="w3-bar-block">
-                <a href="#" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Home</a> 
-                <a href="#showcase" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Showcase</a> 
-                <a href="#services" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Services</a> 
-                <a href="#designers" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Designers</a> 
+            <div className="w3-bar-block navBlock">
+                <a href="#" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB">Home</a> 
+                <a href="#services" onclick= {closeSidebar} className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB">Events</a> 
                 { localStorage.session ? 
-                <a href="/profile" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Profile</a>
+                <a href="/profile" onclick={closeSidebar} className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB">Profile</a>
                 :
                 ''
                 } 
-                <a href="/about" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">About</a>
+                <a href="/about" onclick= {closeSidebar}  className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB">About</a>
                 { localStorage.session ? 
-                <a href="/logout" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Logout</a>
+                <a href="/logout" onclick= {closeSidebar} className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB ">Logout</a>
                 :
-                <a href="/login" onclick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white">Login</a>
+                <a href="/login" onclick= {closeSidebar} className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB">Login</a>
                 } 
             </div>
         </nav>
 
         {/* Adjustment for smaller screens */}
-        <header class="w3-container w3-top w3-hide-large w3-light-green w3-xlarge w3-padding">
-        <a href="javascript:void(0)" class="w3-button w3-light-green w3-margin-right" onclick="openSidebar()">☰</a>
+        <header className="w3-container w3-top w3-hide-large w3-light-green w3-xlarge w3-padding">
+        <a href="javascript:void(0)" className="w3-button w3-light-green w3-margin-right" onclick= {toggleMenu} >☰</a>
         <span>Friendly Forks</span>
         </header>
 
         {/* Overlay effect when opening sidebar on small screens */}
-        <div class="w3-overlay w3-hide-large" onclick="closeSidebar()" style={{cursor: 'pointer'}} title="close side menu" id="myOverlay"></div>
+        <div className="w3-overlay w3-hide-large" onclick= {toggleMenu} style={{cursor: 'pointer'}} title="close side menu" id="myOverlay"></div>
                 <div className='container'>
 
             {/* show user session info */}
