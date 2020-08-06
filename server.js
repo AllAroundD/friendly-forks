@@ -9,6 +9,10 @@ const logger = require('morgan');
 const uuid = require( 'uuid' )
 const orm = require('./app/orm')
 const login = require('./app/models/loginModel')
+const UserModel = require('./app/models/userModel')
+const user = new UserModel()
+const bcrypt = require( 'bcrypt' );
+
 
 const UPLOAD_PATH = process.env.UPLOAD_PATH || 'public/uploads/'
 const uploadResizer = require('./app/uploadResizer')
@@ -70,7 +74,19 @@ require('./app/oAuth')(app, API_URL, ['google','facebook'], createOAuthSession)
 app.post('/api/user/register', async function( req,res ){
   const userData = req.body
   console.log( '[POST: /api/user/register] userData: ', userData )
-  const registerResult = await orm.registerUser( userData )
+  let passwordHash = '';
+   if( !userData.type || userData.type==='local' ){
+      if( !userData.password ){
+         console.log( '[server.js] register: invalid userData (need password)! ', userData );
+         return { message: 'Invalid user password', id: '', name: '' };
+      }
+      const saltRounds = 10;
+      passwordHash = await bcrypt.hash(userData.password, saltRounds);
+      userData.password=passwordHash
+      console.log( `[registerUser] (hash=${passwordHash}) req.body:`, userData );
+      userData.type = 'local';
+   }
+  const registerResult = await user.addUser( userData )
   res.send( registerResult )
 })
 
