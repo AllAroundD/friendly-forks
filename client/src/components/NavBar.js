@@ -114,7 +114,7 @@ function NavBar() {
         </nav>
 
         {/* Adjustment for smaller screens */}
-        <header class="w3-container w3-top w3-hide-large w3-light-green w3-xlarge w3-padding">
+        <header class="w3-container w3-top w3-hide-large w3-light-green w3-xlarge w3-padding" style={{textAlign: 'left'}}>
         <a href="javascript:void(0)" class="w3-button w3-light-green w3-margin-right" onclick="openSidebar()">☰</a>
         <span>Friendly Forks</span>
         </header>
