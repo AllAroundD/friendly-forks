@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react"
 import { useGlobalStore } from "./GlobalStore"
 import API from "./API"
 
-
 function UserProfile() {
     // eslint-disable-next-line
     // const [ globalData, dispatch ] = useGlobalStore()
@@ -26,7 +25,7 @@ function UserProfile() {
     }, [] )
 
     return (
-        <div>  
+        <div style={{marginTop: '150px'}}>  
             {/* first name last name inputs and save button */}
             <p>What is your first name and last name?</p>
             <div class="input-group">
