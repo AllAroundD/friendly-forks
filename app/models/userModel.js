@@ -63,7 +63,11 @@ class UserModel {
     }
 
     async getLoginCredentials(userEmail) {
+<<<<<<< HEAD
         let db = new orm(dbname);
+=======
+        let db = new orm(dbName);
+>>>>>>> 4f45c2f8ec23abb1dd360d703510a77f16ac1a02
         let userData = await db.selectSome("users", "users.userEmail", userEmail);
         await db.closeDB()
         return userData;
