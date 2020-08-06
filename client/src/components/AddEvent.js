@@ -1,6 +1,6 @@
 import API from './API';
 import React, { useEffect, useRef } from "react"
-// const [ eventData ] = useState({ date: "", seats: "", restrictions: "", notes: "" });
+// const eventData = useState({ date: "", seats: "", restrictions: "", notes: "" });
 
 const AddEvent = (props) => {
     // const inputDateTime = useRef()
