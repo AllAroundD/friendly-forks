@@ -1,5 +1,5 @@
-const orm = require("../orm");
-const DB = require("../orm");
+const orm = require("../orm")
+const DB = require("../orm")
 const dbName = process.env.JAWSDB || process.env.DB_NAME
 
 class UserModel {
@@ -138,4 +138,4 @@ class UserModel {
 
 }
 
-module.exports = UserModel
+module.exports = UserModel;

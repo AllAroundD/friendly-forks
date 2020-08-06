@@ -33,7 +33,7 @@ app.use( express.json() );
 app.use(logger('dev'));
 
 const API_URL = process.env.NODE_ENV === 'production'
-   ? '' : `http://localhost:${PORT}`      // TODO add prod url once ready
+   ? 'https://friendlyforks.herokuapp.com/' : `http://localhost:${PORT}`      // TODO add prod url once ready
 
 // session checking middleware
 async function needSession(req, res, next){
