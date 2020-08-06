@@ -1,33 +1,33 @@
-const orm = require("../orm");
-const DB = require("../orm");
+const orm = require("../orm")
+const DB = require("../orm")
 const dbName = process.env.JAWSDB || process.env.DB_NAME
 
 class UserModel {
     async getUserByID(userID) {
         let db = new orm(dbName);
         let user = await db.selectSome("users", "id", userID);
-        await db.closeDB();
+        await db.closeorm();
         return user;
     }
 
     async getUserByAuthID(authID) {
         let db = new orm(dbName);
         let user = await db.selectSome("users", "authID", authID);
-        await db.closeDB();
+        await db.closeorm();
         return user[0].id;
     }
   
     async removeUser(authID) {
         let db = new orm(dbName);
         let user = await db.removeOne("users", "authID", authID);
-        await db.closeDB();
+        await db.closeorm();
         return user;
     }
 
     async getAttendeeByID(attendeeID){
         let db = new orm(dbName);
         let user = await db.selectOne("events", "attendeeID", attendeeID )
-        await db.closeDB()
+        await db.closeorm()
         return user; 
          
     }
@@ -35,14 +35,14 @@ class UserModel {
     async getHostByID(hostID){
         let db = new orm(dbName);
         let user = await db.selectOne("events","hostID", hostID)
-        await db.closeDB()
+        await db.closeorm()
         return user;
     }
 
     async getAllAttendeesByID(attendeeID){
         let db = new orm(dbName);
         let user = await db.selectSome("events", "attendeeID", attendeeID )
-        await db.closeDB()
+        await db.closeorm()
         return user; 
          
     }
@@ -50,7 +50,7 @@ class UserModel {
     async getAddressbyHostID(userAddress){
         let db = new orm(dbName);
         let user = await db.leftJoinWhere("users", "events", "users.userAddress", "events.hostID", "users.userAddress", userAddress)
-        await db.closeDB()
+        await db.closeorm()
         return user;
 
     }
@@ -63,9 +63,9 @@ class UserModel {
     }
 
     async getLoginCredentials(userEmail) {
-        let db = new orm(dbName);
+        let db = new orm("friendlyforks_db");
         let userData = await db.selectSome("users", "users.userEmail", userEmail);
-        await db.closeDB()
+        await db.closeorm()
         return userData;
     }
 
@@ -84,7 +84,7 @@ class UserModel {
             userData = await db.selectOne("users","users.userEmail", userEmail)
         }
 
-        await db.closeDB()
+        await db.closeorm()
         return userData
     }
 
@@ -94,7 +94,7 @@ class UserModel {
         // console.log('queryString: ',queryString)
         let updateResult = await db.query(queryString)
 
-        await db.closeDB()
+        await db.closeorm()
         return true
     }
 
@@ -104,7 +104,7 @@ class UserModel {
         const queryString = `SELECT * FROM users WHERE session='${session}'`
         // console.log('queryString: ',queryString)
         let userData = await db.query(queryString)
-        await db.closeDB()
+        await db.closeorm()
         return userData
     }
 
@@ -115,7 +115,7 @@ class UserModel {
         const queryString = `SELECT * FROM users WHERE session='${session}'`
         // console.log('queryString: ',queryString)
         let userData = await db.query(queryString)
-        await db.closeDB()
+        await db.closeorm()
         return userData
     }
 
@@ -124,7 +124,7 @@ class UserModel {
         // console.log('[UserModel] addUser: ',userData)
         let db = new orm(dbName);
         let result = await db.addUser(userData);
-        await db.closeDB()
+        await db.closeorm()
         return result
     }
 
@@ -132,10 +132,10 @@ class UserModel {
         // console.log('[UserModel] saveUser: ', userData)
         let db = new orm(dbName);
         let result = await db.updateUser(userData);
-        await db.closeDB()
+        await db.closeorm()
         return result
     }
 
 }
 
-module.exports = UserModel
+module.exports = UserModel;
