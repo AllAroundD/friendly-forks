@@ -71,10 +71,17 @@ class EventModel {
 
     async getEventbyRestrictions(restrictions){
         // let restrictions = document.querySelector("dietRestrict").selectedOptions[i].value
-        let db = orm(dbName)
+        let db = new orm (dbName)
         let events = await db.selectSome("events", "events.restriction", restrictions)
         await db.closeDB();
         return events;
+    }
+
+    async addEvent(eventData) {
+        let db = new orm ("friendlyforks_db")
+        let event = await db.addEvent(eventData);
+        await db.closeDB();
+        return event;
     }
 
 }
