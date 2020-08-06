@@ -1,47 +1,47 @@
 import API from './API';
 import React, { useEffect, useRef } from "react"
-const [ eventData ] = useState({ date: "", seats: "", restrictions: "", notes: "" });
+// const [ eventData ] = useState({ date: "", seats: "", restrictions: "", notes: "" });
 
 const AddEvent = (props) => {
-    const inputDateTime = useRef()
-    const inputGuestNumber = useRef()
-    const inputVegetarian = useRef()
-    const inputPescatarian = useRef()
-    const inputVegan = useRef()
-    const inputHalal = useRef()
-    const inputKosher = useRef()
-    const inputGF = useRef()
-    const inputLI = useRef()
-    const inputAllergies = useRef()  
-    const inputNotes = useRef()
+    // const inputDateTime = useRef()
+    // const inputGuestNumber = useRef()
+    // const inputVegetarian = useRef()
+    // const inputPescatarian = useRef()
+    // const inputVegan = useRef()
+    // const inputHalal = useRef()
+    // const inputKosher = useRef()
+    // const inputGF = useRef()
+    // const inputLI = useRef()
+    // const inputAllergies = useRef()  
+    // const inputNotes = useRef()
 
-    async function getDietaryRestrictions() {
-        const dietaryRestrictions = [];
-        if (inputVegetarian) {
-            dietaryRestrictions.push(`${inputVegetarian}`);
-        } else if (inputPescatarian) {
-            dietaryRestrictions.push(`${inputPescatarian}`)
-        } else if (inputVegan) {
-            dietaryRestrictions.push(`${inputVegan}`)
-        } else if (inputHalal) {
-            dietaryRestrictions.push(`${inputHalal}`)
-        } else if (inputKosher) {
-            dietaryRestrictions.push(`${inputKosher}`)
-        } else if (inputGF) {
-            dietaryRestrictions.push(`${inputGF}`)
-        } else if (inputLI) {
-            dietaryRestrictions.push(`${inputLI}`)
-        } else if (inputAllergies) {
-            dietaryRestrictions.push(`${inputAllergies}`)
-        }
-        json.stringify(dietaryRestrictions);
-        return dietaryRestrictions;
-    };
+    // async function getDietaryRestrictions() {
+    //     const dietaryRestrictions = [];
+    //     if (inputVegetarian) {
+    //         dietaryRestrictions.push(`${inputVegetarian}`);
+    //     } else if (inputPescatarian) {
+    //         dietaryRestrictions.push(`${inputPescatarian}`)
+    //     } else if (inputVegan) {
+    //         dietaryRestrictions.push(`${inputVegan}`)
+    //     } else if (inputHalal) {
+    //         dietaryRestrictions.push(`${inputHalal}`)
+    //     } else if (inputKosher) {
+    //         dietaryRestrictions.push(`${inputKosher}`)
+    //     } else if (inputGF) {
+    //         dietaryRestrictions.push(`${inputGF}`)
+    //     } else if (inputLI) {
+    //         dietaryRestrictions.push(`${inputLI}`)
+    //     } else if (inputAllergies) {
+    //         dietaryRestrictions.push(`${inputAllergies}`)
+    //     }
+    //     json.stringify(dietaryRestrictions);
+    //     return dietaryRestrictions;
+    // };
 
 
     return (
         <div style={{marginTop:'150px'}}>
-            <p>Please Select an Event Date and Time:</p>            
+            {/* <p>Please Select an Event Date and Time:</p>            
             <input type="datetime-local" id="birthdaytime" name="birthdaytime" ref={inputDateTime} style={{backgroundColor: 'aliceBlue', borderRadius: '5px'}}></input>
 
             <p>How many guests would you like to host?</p>
@@ -73,7 +73,7 @@ const AddEvent = (props) => {
                 <label for="EventNotes">Notes: (Please include any details that may be relevant to your event!)</label>
                 <textarea onChange={handleInputChange} id='eventNotes' type="text"  placeholder="notes" class="form-control" ref={inputNotes}/>
             </div>
-        <button class="btn btn-primary">Create Event</button>
+        <button class="btn btn-primary">Create Event</button> */}
     </div>
         )
     }
