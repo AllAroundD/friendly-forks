@@ -46,7 +46,7 @@ const AddEvent = (props) => {
             </div>
             <div class="form-group">
                 <label for="EventNotes">Notes: (Please include any details that may be relevant to your event!)</label>
-                <textarea value={eventData.event} onChange={handleInputChange} id='eventNotes' type="text"  placeholder="notes" class="form-control" ref={inputNotes}/>
+                <textarea onChange={handleInputChange} id='eventNotes' type="text"  placeholder="notes" class="form-control" ref={inputNotes}/>
             </div>
         <button class="btn btn-primary">Create Event</button>
     </div>

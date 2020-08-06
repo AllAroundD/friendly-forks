@@ -24,6 +24,15 @@ function UserProfile() {
         return apiResult
     }
 
+    async function collectInputData(userData) {
+        inputFirstName.current.value = userData[0].firstName
+        inputLastName.current.value = userData[0].lastName
+        inputEmail.current.value = userData[0].userEmail
+        inputAddress.current.value = userData[0].userAddress
+        inputLocation.current.value = userData[0].userLocation
+        inputNotes.current.value = userData[0].userNotes
+    }
+
     // let userData
     // at startup we initialize a few things
     useEffect( async function(){
@@ -32,13 +41,9 @@ function UserProfile() {
         setValues(userData[0])
         console.log('[UserProfile] userData ', userData[0])
 
-        inputFirstName.current.value = userData[0].firstName
-        inputLastName.current.value = userData[0].lastName
-        inputEmail.current.value = userData[0].userEmail
-        inputAddress.current.value = userData[0].userAddress
-        inputLocation.current.value = userData[0].userLocation
-        inputNotes.current.value = userData[0].userNotes
+        
         // inputAvatar.current.value = userData[0].thumbnail
+        collectInputData(userData)
         setUserData (userData)
     }, [] )
 
