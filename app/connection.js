@@ -1,6 +1,6 @@
 const mysql = require("mysql2");       // using mysql2 for Promises
 
-if (! process.env.JAWSDB_URL) {
+if (!process.env.JAWSDB_URL) {
     require("dotenv").config();
 };
 
@@ -13,8 +13,7 @@ function connectDB() {
             port: 3306,
             user: process.env.DB_USER,
             password: process.env.DB_PWD,
-            database: process.env.DB_NAME
-            ,
+            database: process.env.DB_NAME,
             insecureAuth: true
         });
     };
