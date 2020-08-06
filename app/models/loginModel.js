@@ -1,4 +1,4 @@
-const UserModel = require('./userModel')
+const UserModel = require('./userModel.js')
 const userModel = new UserModel()
 const bcrypt = require( 'bcrypt' );
 const saltRounds = 10;
