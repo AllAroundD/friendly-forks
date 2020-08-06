@@ -126,6 +126,15 @@ class UserModel {
         await db.closeDB()
         return result
     }
+
+    async saveUser(userData) {
+        console.log('[UserModel] saveUser: ', userData)
+        let db = new DB ("friendlyforks_db")
+        let result = await db.updateUser(userData);
+        await db.closeDB()
+        return result
+    }
+
 }
 
 module.exports = UserModel

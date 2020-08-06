@@ -79,7 +79,7 @@ function RegisterPage(){
         // remember the email
         localStorage.email = apiResult.rememberMe ? apiResult.email : '';
 
-        dispatch( { do: 'setMessage', type: 'success', message: 'Thank you successfully registered' } );
+        dispatch( { do: 'setMessage', type: 'success', message: 'You have successfully registered' } );
 
         // let the message sit for a bit then redirect to login
         setTimeout( function(){ setIsRegistered(true); }, 5000 );
@@ -131,7 +131,7 @@ function RegisterPage(){
                                 id="password" type="password" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="name">Address</label>
+                            <label for="name">Address: (please include special instructions if relevant) </label>
                             <input value={userData.address} 
                                 onChange={handleInputChange} 
                                 id='userAddress' 
@@ -139,7 +139,7 @@ function RegisterPage(){
                                 type="text" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="location">Location</label>
+                            <label for="location">Closest Intersection</label>
                             <input value={userData.location} 
                                 onChange={handleInputChange} 
                                 id='userLocation'
@@ -148,7 +148,7 @@ function RegisterPage(){
                         </div>
                         <div class="form-group">
                             <label for="UserNotes">Notes: (Please add any notes we should know about you ie: dietary restrictions, what you like to cook? what you like to eat? are you social? etc etc. )</label>
-                            <textarea value={userData.notes} onChange={handleInputChange} id='userNotes' type="text"  placeholder="notes" class="form-control" />
+                            <textarea value={userData.notes} onChange={handleInputChange} id='userNotes' type="text"  ref={inputNotes} placeholder="notes" class="form-control" />
                         </div>
                         <input type="hidden" id="thumbnail" value="" />
                         <button onClick={registerUser} class="btn btn-primary submit" >Register</button>
