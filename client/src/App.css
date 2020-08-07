@@ -394,10 +394,76 @@
 
 }
 
+.createEvent{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+
+}
+
+.createButtoncontainer{
+  padding-top: 20px;
+}
+
+.addEventTitle{
+  font-family: 'Josefin Sans', sans-serif;
+  /* font-size: 28px; */
+  padding-left:40px;
+  
+
+}
+
+.timeTitle{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 22px;
+  padding-left:40px;
+
+}
+
+.guestNumTitle{
+  padding-top: 15px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 22px;
+  padding-left:40px;
+
+
+}
 
 
 
+#availableSeats{
+  
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 22px;
+  padding-left:40px;
 
+}
+
+.DietRestrictTitle{
+  padding-top: 15px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 22px;
+  padding-left:40px;
+
+
+}
+
+.dietrestrictionCard{
+  padding-left:40px;
+  padding-bottom: 20px;
+
+}
+
+.dietcardContent{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+
+}
+
+#eventNotes{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+
+}
 
 
 

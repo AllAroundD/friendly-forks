@@ -112,10 +112,11 @@ const AddEvent = (props) => {
 
     return (
         <div style={{marginTop:'150px'}}>
-            <p>Please Select an Event Date and Time:</p>            
+            <h1 className="addEventTitle">Add an event!</h1>
+            <p className="timeTitle">Please Select an Event Date and Time:</p>            
             <input onChange={handleInputChange} type="datetime-local" id="eventDate" name="eventDate" ref={inputDateTime} style={{backgroundColor: 'aliceBlue', borderRadius: '5px'}}></input>
 
-            <p>How many guests would you like to host?</p>
+            <p className="guestNumTitle">How many guests would you like to host?</p>
             <form action="/action_page.php">
                 <select onChange={handleInputChange} name="availableSeats" id="availableSeats" ref={inputGuestNumber} style={{backgroundColor: 'aliceBlue', borderRadius: '5px'}}>
                     <option value="availableSeats" selected disabled>Available Seats:</option>
@@ -125,10 +126,10 @@ const AddEvent = (props) => {
                 </select>
             </form>
 
-            <p>Are there any dietary restrictions you'd like to include?</p>
-            <div class="d-flex justify-content-center" style={{alignItems: 'center'}}>
-                <div className="card d-flex justify-content-center" style={{width: '30vw', padding: '10px'}}>
-                    <ul style={{listStyle: 'none', textAlign: 'left'}}>
+            <p className="DietRestrictTitle">Are there any dietary restrictions you'd like to include?</p>
+            <div class="d-flex justify-content-center dietrestrictionCard" style={{alignItems: 'center'}}>
+                <div className="card d-flex justify-content-center " style={{width: '30vw', padding: '10px'}}>
+                    <ul className="dietcardContent" style={{listStyle: 'none', textAlign: 'left'}}>
                         {/* {
                             this.state.restrictions.map((restrictions) => {
                                 return (<CheckBox handleCheckboxes = {this.handleCheckboxes} {...restrictions} />)
@@ -146,10 +147,12 @@ const AddEvent = (props) => {
                 </div>
             </div>
             <div class="form-group">
-                <label for="EventNotes">Notes: (Please include any details that may be relevant to your event!)</label>
-                <textarea onChange={handleInputChange} id='eventNotes' type="text"  placeholder="notes" class="form-control" ref={inputNotes}/>
+                <label for="EventNotes"></label>
+                <textarea onChange={handleInputChange} id='eventNotes' type="text"  placeholder="Notes: (Please include any details that may be relevant to your event!)" class="form-control" ref={inputNotes}/>
             </div>
-        <button onClick={postEvent} class="btn btn-primary">Create Event</button>
+            <div className="container createButtoncontainer">
+            <button onClick={postEvent} className="btn btn-primary createEvent">Create Event</button>
+            </div>
     </div>
         )
     }
