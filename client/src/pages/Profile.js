@@ -6,7 +6,7 @@ function Profile () {
     return (
         <div>
             <UserProfile />
-            {/* <AddEvent /> */}
+            <AddEvent />
         </div>
     )
 }

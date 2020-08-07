@@ -31,45 +31,75 @@ const AddEvent = (props) => {
         })
         this.setState({restrictions: restrictions})
     }
+    
+    // const [eventData, setEventData] = useState({ eventDate: "", availableSeats: "", restrictions: "", eventNotes: "" });
+    // const inputDateTime = useRef()
+    // const inputGuestNumber = useRef()
+    // const inputVegetarian = useRef()
+    // const inputPescatarian = useRef()
+    // const inputVegan = useRef()
+    // const inputHalal = useRef()
+    // const inputKosher = useRef()
+    // const inputGF = useRef()
+    // const inputLI = useRef()
+    // const inputAllergies = useRef()  
+    // const inputNotes = useRef()
 
     // const checkBox = this.state.restrictions.map((restrictions) => {
     //     return (<li><input key={props.id} onClick={props.handleCheckChieldElement} type="checkbox" checked={props.isChecked} value={props.value} /> {props.value}</li>);
 
     async function getDietaryRestrictions() {
         const dietaryRestrictions = [];
-        if (inputVegetarian) {
-            dietaryRestrictions.push(`${inputVegetarian}`);
-        } else if (inputPescatarian) {
-            dietaryRestrictions.push(`${inputPescatarian}`)
-        } else if (inputVegan) {
-            dietaryRestrictions.push(`${inputVegan}`)
-        } else if (inputHalal) {
-            dietaryRestrictions.push(`${inputHalal}`)
-        } else if (inputKosher) {
-            dietaryRestrictions.push(`${inputKosher}`)
-        } else if (inputGF) {
-            dietaryRestrictions.push(`${inputGF}`)
-        } else if (inputLI) {
-            dietaryRestrictions.push(`${inputLI}`)
-        } else if (inputAllergies) {
-            dietaryRestrictions.push(`${inputAllergies}`)
+        if (inputVegetarian.current.checked) {
+            dietaryRestrictions.push("Vegetarian");
         }
+        if (inputPescatarian.current.checked) {
+            dietaryRestrictions.push("Pescatarian")
+        }
+        if (inputVegan.current.checked) {
+            dietaryRestrictions.push("Vegan")
+        }
+        if (inputHalal.current.checked) {
+            dietaryRestrictions.push("Halal")
+        }
+        if (inputKosher.current.checked) {
+            dietaryRestrictions.push("Kosher")
+        }
+        if (inputGF.current.checked) {
+            dietaryRestrictions.push("Gluten Free")
+        }
+        if (inputLI.current.checked) {
+            dietaryRestrictions.push("Lactose Intolerant")
+        }
+        if (inputAllergies.current.checked) {
+            dietaryRestrictions.push("Allergies")
+        }
+        if (dietaryRestrictions == null) {
+            dietaryRestrictions = "There are no dietary restrictions for this event."
+        }
+        console.log(inputVegan.current.checked);
+        console.log(inputVegetarian.current.checked);
+        console.log(inputVegetarian);
+        console.log(inputVegan);
+        console.log(dietaryRestrictions);
         return JSON.stringify(dietaryRestrictions);
     };
     
     function handleInputChange( e ){
         const { id, value } = e.target 
-        setEventData( { ...eventData, [id]: value } )
+        setEventData( { ...eventData, [id]: value } );
     }
 
     function handleCheckboxChange( e ){
         const { id, value } = e.target
         setRestrictions( ...restrictions, value)
-        setEventData( { ...eventData, [id]: getDietaryRestrictions() } )
     }
 
     async function postEvent(e) {
         e.preventDefault();
+        setEventData( { ...eventData, [restrictions]: getDietaryRestrictions() } )
+        console.log(eventData);
+        console.log(restrictions);
         // const restrictions = getDietaryRestrictions();
         const apiResult = await API.post('/api/event/create', eventData);
                   
@@ -108,14 +138,14 @@ const AddEvent = (props) => {
                                 return (<CheckBox handleCheckboxes = {this.handleCheckboxes} {...restrictions} />)
                             })
                         } */}
-                        <li><input type="checkbox" onChange={handleCheckboxChange} ref={inputVegetarian} />Vegetarian</li>
-                        <li><input type="checkbox" onChange={handleCheckboxChange} ref={inputPescatarian} />Pescatarian</li>
-                        <li><input type="checkbox" onChange={handleCheckboxChange} ref={inputVegan} />Vegan</li>
-                        <li><input type="checkbox" onChange={handleCheckboxChange} ref={inputHalal} />Halal</li>
-                        <li><input type="checkbox" onChange={handleCheckboxChange} ref={inputKosher} />Kosher</li>
-                        <li><input type="checkbox" onChange={handleCheckboxChange} ref={inputGF} />Gluten Free</li>
-                        <li><input type="checkbox" onChange={handleCheckboxChange} ref={inputLI} />Lactose Interolerant</li>
-                        <li><input type="checkbox" onChange={handleCheckboxChange} ref={inputAllergies} />Allergies (Please include details in your notes!)</li>
+                        <li><input type="checkbox" onChange={handleCheckboxChange} id="Vegetarian" ref={inputVegetarian} />Vegetarian</li>
+                        <li><input type="checkbox" onChange={handleCheckboxChange} id="Pescatarian" ref={inputPescatarian} />Pescatarian</li>
+                        <li><input type="checkbox" onChange={handleCheckboxChange} id="Vegan" ref={inputVegan} />Vegan</li>
+                        <li><input type="checkbox" onChange={handleCheckboxChange} id="Halal" ref={inputHalal} />Halal</li>
+                        <li><input type="checkbox" onChange={handleCheckboxChange} id="Kosher" ref={inputKosher} />Kosher</li>
+                        <li><input type="checkbox" onChange={handleCheckboxChange} id="GlutenFree" ref={inputGF} />Gluten Free</li>
+                        <li><input type="checkbox" onChange={handleCheckboxChange} id="LactoseIntolerance" ref={inputLI} />Lactose Interolerant</li>
+                        <li><input type="checkbox" onChange={handleCheckboxChange} id="Allergies" ref={inputAllergies} />Allergies (Please include details in your notes!)</li>
                     </ul>
                 </div>
             </div>
