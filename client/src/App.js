@@ -11,7 +11,7 @@ import Footer from './components/Footer'
 import ProfilePage from './pages/Profile'
 import AboutPage from './pages/About'
 import Jumbotron from './components/Jumbotron'
-// import ProfilePage from './components/UserProfile'
+import EventsPage from './pages/Events'
 
 import './App.css'
 
@@ -25,6 +25,7 @@ function App() {
                     <div class="w3-main" style={{marginLeft: '340px', marginRight: '40px'}}>
                         <Jumbotron></Jumbotron>
                     <div class="container">
+                        <Route exact path="/events" component={EventsPage} />
                         <Route exact path="/profile" component={ProfilePage} />
                         <Route exact path="/register" component={RegisterPage} />
                         <Route exact path="/about" component={AboutPage} />

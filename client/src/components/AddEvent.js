@@ -1,6 +1,6 @@
 import API from './API';
 import  CheckBox  from './Checkbox';
-import React, { useEffect, useRef, useState } from "react"
+import React, { Component, useEffect, useRef, useState } from "react"
 
 const AddEvent = (props) => {
     constructor(props)       
