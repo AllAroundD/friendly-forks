@@ -70,7 +70,6 @@ async function createOAuthSession( userData ){
 require('./app/oAuth')(app, API_URL, ['google','facebook'], createOAuthSession)
 
 
-
 // ENDPOINTS      /---> next()
 
 app.post('/api/user/register', async function( req,res ){
@@ -143,6 +142,7 @@ app.post('/api/event/create', async function( req,res ){
 
 app.get('/api/event/events', async function (req, res) {
   const eventsList = await event.getAllEvents();
+  console.log(eventsList);
   res.send(JSON.stringify(eventsList));
 });
 
