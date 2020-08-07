@@ -4,18 +4,18 @@ import API from '../components/API'
 import EventBox from '../components/EventBox'
 
 function Events (props) {
-    let [eventData, setEventData] = useState({ eventDate: "", eventDate: "", availableSeats: "", eventNotes: "", restrictions: "", hostID:"", attendeeID:"" });
+    let {eventData, setEventData} = useState({ eventDate: "", eventDate: "", availableSeats: "", eventNotes: "", restrictions: "", hostID:"", attendeeID:"" });
 
     async function displayEvents() {
         const allEvents = await API.get('/api/event/events');
         return allEvents;
     }
      
-    useEffect( async function(){
-        eventData = await displayEvents()
-        console.log(eventData)
-        setEventData (eventData[0])
-    }, [] )
+    // useEffect( async function(){
+    //     eventData = await displayEvents()
+    //     console.log(eventData)
+    //     setEventData (eventData[0])
+    // }, [] )
 
 
     // eventData.forEach((event, index) => {
@@ -26,8 +26,10 @@ function Events (props) {
     // let events = displayEvents();
     return (
         <div>
-            {/* {eventData.map(event => console.log(event))} */}
-            
+            {/* {eventData.map(event => <p>event</p>)}
+            {
+                eventData.map(event => )
+            } */}
         </div>
     )
 }

@@ -123,10 +123,10 @@ function RegisterPage(){
                             value={userData.password} 
                             onChange={handleInputChange} 
                             ref={inputPassword}
-                            id="userPassword" type="password" class="form-control" placeholder="Please make a password" />
+                            id="password" type="password" class="form-control" placeholder="Please make a password" />
                     </div>
                     <div class="form-group">
-                        <label for="name"></label>
+                        <label for="address"></label>
                         <input value={userData.address} 
                             onChange={handleInputChange} 
                             id='userAddress' 
