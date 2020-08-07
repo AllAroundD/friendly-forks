@@ -22,14 +22,14 @@ const AddEvent = (props) => {
     const inputNotes = useRef()
 
 
-    function handleCheckboxes( event) {
-        let restrictions = this.state.restrictions
-        restrictions.forEach(restrictions => {
-            if (restrictions.value === event.target.value)
-            restrictions.isChecked = event.target.checked
-        })
-        this.setState({restrictions: restrictions})
-    }
+    // function handleCheckboxes(event) {
+    //     let restrictions = this.state.restrictions
+    //     restrictions.forEach(restrictions => {
+    //         if (restrictions.value === event.target.value)
+    //         restrictions.isChecked = event.target.checked
+    //     })
+    //     this.setState({restrictions: restrictions})
+    // }
     
     // const [eventData, setEventData] = useState({ eventDate: "", availableSeats: "", restrictions: "", eventNotes: "" });
     // const inputDateTime = useRef()
@@ -89,8 +89,6 @@ const AddEvent = (props) => {
         const { id, value } = e.target
         setRestrictions( ...restrictions, value)
     }
-
-    
 
     async function postEvent(e) {
         e.preventDefault();
