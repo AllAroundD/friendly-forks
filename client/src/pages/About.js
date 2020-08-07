@@ -1,5 +1,17 @@
 import React from 'react'
 import AboutCards from '../components/AboutCards'
+import NodeJS from '../public/assets/img/nodejs.png'
+import NPMlogo from '../public/assets/img/npmlogo.png'
+import ReactLogo from '../public/assets/img/ReactLogo.png'
+import jslogo from '../public/assets/img/jslogo.png'
+import htmllogo from '../public/assets/img/htmllogo.png'
+import w3Logo from '../public/assets/img/w3Logo.png'
+import bootstrap from '../public/assets/img/bootstraplogo.png'
+import css from '../public/assets/img/csslogo.png'
+import sqlLogo from '../public/assets/img/sqllogo.png'
+
+
+
 
 function Profile () {
     return (
@@ -13,6 +25,19 @@ function Profile () {
                 </p>
             </div>
             <AboutCards />
+            {/* <div className="container">
+                <div className="card Techlogo1">
+                <img src={NodeJS} className="TechLogo" alt="logo"/>
+                <img src={NPMlogo} className="TechLogo" alt="logo"/>
+                <img src={sqlLogo} className="TechLogo" alt="logo"/>
+                <img src={ReactLogo} className="TechLogo" alt="logo"/>
+                <img src={jslogo} className="TechLogo" alt="logo"/>
+                <img src={htmllogo} className="TechLogo" alt="logo"/>
+                <img src={css} className="TechLogo"alt="logo"/>
+                <img src={w3Logo} className="TechLogo" alt="logo"/>
+                <img src={bootstrap} className="TechLogo" alt="logo"/> 
+                </div>
+            </div> */}
         </>
     )
 }
