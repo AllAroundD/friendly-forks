@@ -5,9 +5,9 @@ function get( url ){
         .then( result=>result.json() )
 }
 
-function post( url, userData ){
+function post( url, data ){
     console.log(`[in API post] url `, url)
-    console.log(`[in API post] userData `, JSON.stringify(userData))
+    console.log(`[in API post] data `, JSON.stringify(data))
     return fetch( url, 
         {   method: 'post',
             headers: {
@@ -15,7 +15,7 @@ function post( url, userData ){
                 'Content-Type': 'application/json',
                 'Session': localStorage.session ? localStorage.session : ''
             },
-            body: JSON.stringify(userData)
+            body: JSON.stringify(data)
         }).then( result=>result.json())
 }
 
