@@ -5,6 +5,7 @@ import AddEvent from "../components/AddEvent"
 function Profile () {
     return (
         <div>
+             <h1 className="profilepageTitle">Your Profile Page</h1>
             <UserProfile />
             <AddEvent />
         </div>

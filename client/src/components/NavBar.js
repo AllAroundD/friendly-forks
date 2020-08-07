@@ -87,17 +87,9 @@ function NavBar() {
     }
 
 
-    // function toggleMenu(){
-    //     if(this.state.setShowMenu == true){
-    //         openSidebar()
-    
-    //     }else{
-    //         closeSidebar()
-    //     }
-    
       
 
-    // }
+
 
     function toggleMenu(){
         setShowMenu(!showMenu)
@@ -113,7 +105,7 @@ function NavBar() {
         <nav className="w3-sidebar w3-light-green w3-collapse w3-top w3-large w3-padding" style={{zIndex:'3', width: '300px', fontWeight: 'bold', display: showMenu ? "block" : "none"}}><br />
             <a href="javascript:void(0)" onClick="closeSidebar()" className="w3-button w3-hide-large w3-display-topleft" style={{width: '100%', fontSize: '22px'}} />
             <div className="w3-container">
-                <h2 className="w3-padding-12"><br />Friendly<br />Forks<br /></h2>
+                {/* <h2 className="w3-padding-12"><br />Friendly<br />Forks<br /></h2> */}
             </div>
             <div className="w3-bar-block navBlock">
                 <a href="#" onClick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB">Home</a> 
@@ -129,13 +121,14 @@ function NavBar() {
                 :
                 <a href="/login" onClick= {closeSidebar} className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB">Login</a>
                 } 
+                <p className="Footer">&copy; 2020 The Virtual Reactors</p>
             </div>
         </nav>
 
         {/* Adjustment for smaller screens */}
         <header className="w3-container w3-top w3-hide-large w3-light-green w3-xlarge w3-padding">
-        <a href="javascript:void(0)" className="w3-button w3-light-green w3-margin-right" onClick= {toggleMenu}  id= "mySidebar" >☰</a>
-        <span>Friendly Forks</span>
+        <a href="javascript:void(0)" className="w3-button w3-light-green w3-margin-right myHamburger" onClick= {toggleMenu}  id= "myHamburger" >☰</a>
+        {/* <span>Friendly Forks</span> */}
         </header>
 
         {/* Overlay effect when opening sidebar on small screens */}

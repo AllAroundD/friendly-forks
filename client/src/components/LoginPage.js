@@ -73,7 +73,7 @@ function LoginPage(){
     return (
         <div>
             { globalData.loggedIn ? <Redirect to='/landing' /> : '' }       {/* added landing */} {/*//TODO set page to landing page */}
-            <h1 style={{marginTop: '80px'}}>Login</h1>
+            <h1 className="loginTitle" style={{marginTop: '80px'}}>Login</h1>
 
             <div class="container">
                 {/* <OAuth providers={['facebook','google']} loginComplete={loginComplete} />
@@ -81,8 +81,8 @@ function LoginPage(){
                     <div class="card-body"> */}
                     {/* eslint-disable-next-line */}
                     <form role="form">
-                        <div class="form-group">
-                            <label for="userEmail">Email Address</label>
+                        <div class="form-group d-flex justify-content-center">
+                            <label for="userEmail"></label>
                             <input 
                                 value={userData.email} 
                                 onChange={handleInputChange} 
@@ -90,19 +90,27 @@ function LoginPage(){
                                 id="email" type="email" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label for="userPassword">Password</label>
+                            <label for="userPassword"></label>
                             <input 
                                 value={userData.password} 
                                 onChange={handleInputChange} 
                                 ref={inputPassword}
                                 id="password" type="password" class="form-control" />
                         </div>
-                        <button onClick={loginUser} type="button" class="btn btn-primary submit">Login</button>
+                        <div className="container loginButton">
+                        <button onClick={loginUser} type="button" className="btn btn-primary submit">Login</button>
                         &nbsp; 
+                        </div>
+                        <br></br>
+                        <div className="container rememberMeBox">
                         <input type="checkbox"
                         checked={userData.rememberMe} onChange={handleCheckbox} />                        
                         <label class='text-secondary' for='rememberMe'>Remember Me</label> &nbsp;
+                        </div>
+                        <br></br>
+                        <div className="container registerButton">
                         <a href="/register">Need to Register?</a>
+                        </div>
                     </form>
                     </div>
                 {/* </div>
