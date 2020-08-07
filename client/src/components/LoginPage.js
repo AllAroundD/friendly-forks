@@ -6,9 +6,7 @@ import { useGlobalStore } from "./GlobalStore";
 
 function LoginPage(){
     // DECLARATIVE FORM OF PROGRAMMING
-    // TODO remove hard-coding once ready
-    // const [ userData, setUserData ] = useState({ name: "", email: localStorage.email, password: "", rememberMe: true });
-    const [ userData, setUserData ] = useState({ name: "JohnDoe", email: 'john.doe@gmail.com', password: "testing123", rememberMe: false });
+    const [ userData, setUserData ] = useState({ name: "", email: localStorage.email, password: "", rememberMe: true });
     const [ globalData, dispatch ] = useGlobalStore();
 
     const inputEmail = useRef();
