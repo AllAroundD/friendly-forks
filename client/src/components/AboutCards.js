@@ -35,6 +35,7 @@ const AboutCards = (props) => {
                     </a>
                 </div>
             </section>
+            
         </div>
     )
 }
