@@ -93,7 +93,7 @@ function RegisterPage(){
                 <h1>User Registration</h1>
                 {/* <div class="card">
                     <div class="card-header"> */}
-                    Register
+          
                     </div>
                     <div class="card-body">
                     <form>
