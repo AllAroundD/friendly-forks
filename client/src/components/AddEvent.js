@@ -1,6 +1,6 @@
 import API from './API';
-import  CheckBox  from './Checkbox';
-import { Redirect } from 'react-router-dom';
+// import  CheckBox  from './Checkbox';
+// import { Redirect } from 'react-router-dom';
 import { useGlobalStore } from "./GlobalStore";
 import React, { useEffect, useRef, useState } from "react"
 

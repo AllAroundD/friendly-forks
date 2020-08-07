@@ -47,6 +47,9 @@ jspm_packages/
 package-lock.json
 client/package-lock.json
 
+# Misc
+.DS_Store
+
 # TypeScript v1 declaration files
 typings/
 
