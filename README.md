@@ -68,5 +68,5 @@ Alternatively, you can access the deployed application at: https://friendlyforks
 
 **This project was created by (c) 2020 Virtual Reactors.**     
 
-**GitHub Repository:** https://github.com/ChristineClemens/EmployeeDirectory          
-**Deployed Application:** https://fast-plains-24759.herokuapp.com/         
+**GitHub Repository:** https://github.com/AllAroundD/friendly-forks     
+**Deployed Application:** https://friendlyforks.herokuapp.com/        
