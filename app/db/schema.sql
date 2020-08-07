@@ -29,7 +29,11 @@ id INTEGER AUTO_INCREMENT NOT NULL,
 eventDate TIMESTAMP,
 availableSeats INTEGER,
 eventNotes VARCHAR(255),
+<<<<<<< HEAD
 restrictions VARCHAR(255) DEFAULT 'None',
+=======
+restrictions VARCHAR(255) DEFAULT "None",
+>>>>>>> master
 hostID INTEGER,
 attendeeID INTEGER,
 createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,

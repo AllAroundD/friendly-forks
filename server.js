@@ -141,6 +141,10 @@ app.post('/api/event/create', async function( req,res ){
   res.send( insertResult )
 })
 
+app.get('/api/event/events', async function (req, res) {
+  const eventsList = await event.getAllEvents();
+  res.send(JSON.stringify(eventsList));
+});
 
 // Send every request to the React app
 // Define any API routes before this runs

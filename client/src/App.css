@@ -52,7 +52,7 @@
   display: flex; 
   align-items: center; 
   width: 25rem; 
-  background-image: url(../src/public/assets/img/RotatedTabletop.png); 
+  background-image: url(../src/public//assets/img/RotatedTabletop.png); 
   background-size: contain; 
   background-position: center; 
   background-repeat: no-repeat;
@@ -194,6 +194,8 @@
 }
 
 .Footer{
+  position: fixed;
+  bottom: 0;
   padding-top:360px;
   font-family: 'Josefin Sans', sans-serif;
   

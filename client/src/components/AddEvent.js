@@ -1,12 +1,12 @@
 import API from './API';
-// import  CheckBox  from './Checkbox';
 // import { Redirect } from 'react-router-dom';
 import { useGlobalStore } from "./GlobalStore";
 import React, { useEffect, useRef, useState } from "react"
 
 const AddEvent = (props) => {
     // eslint-disable-next-line
-    const [ globalData, dispatch ] = useGlobalStore();
+    const [ globalData, dispatch ] = useGlobalStore()
+    // eslint-disable-next-line
     let [ userData, setUserData ] = useState({})
     
     async function getUser( session ){
@@ -27,6 +27,7 @@ const AddEvent = (props) => {
 
 
     const [eventData, setEventData] = useState({ eventDate: "", availableSeats: "", eventNotes: "", restrictions: "", hostID: localStorage.id});
+    // eslint-disable-next-line
     const [ isEventCreated, setIsEventCreated ] = useState( false );
     const [ restrictions, setRestrictions ] = useState([])
     const inputDateTime = useRef()
@@ -41,14 +42,15 @@ const AddEvent = (props) => {
     const inputAllergies = useRef()  
     const inputNotes = useRef()
 
-    function handleCheckboxes( event) {
-        let restrictions = this.state.restrictions
-        restrictions.forEach(restrictions => {
-            if (restrictions.value === event.target.value)
-            restrictions.isChecked = event.target.checked
-        })
-        this.setState({restrictions: restrictions})
-    }
+
+    // function handleCheckboxes(event) {
+    //     let restrictions = this.state.restrictions
+    //     restrictions.forEach(restrictions => {
+    //         if (restrictions.value === event.target.value)
+    //         restrictions.isChecked = event.target.checked
+    //     })
+    //     this.setState({restrictions: restrictions})
+    // }
     
     // const [eventData, setEventData] = useState({ eventDate: "", availableSeats: "", restrictions: "", eventNotes: "" });
     // const inputDateTime = useRef()
@@ -95,11 +97,7 @@ const AddEvent = (props) => {
         if (dietaryRestrictions == null) {
             dietaryRestrictions = "There are no dietary restrictions for this event."
         }
-        console.log(inputVegan.current.checked);
-        console.log(inputVegetarian.current.checked);
-        console.log(inputVegetarian);
-        console.log(inputVegan);
-        console.log(dietaryRestrictions);
+        
         return JSON.stringify(dietaryRestrictions);
     };
     
@@ -121,6 +119,7 @@ const AddEvent = (props) => {
         console.log(restrictions);
         // const restrictions = getDietaryRestrictions();
         const apiResult = await API.post('/api/event/create', eventData);
+        console.log(apiResult);
                   
         if( apiResult.error ){
             dispatch( { do: 'setMessage', type: 'danger', message: apiResult.error } );
