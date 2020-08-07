@@ -77,11 +77,7 @@ const AddEvent = (props) => {
         if (dietaryRestrictions == null) {
             dietaryRestrictions = "There are no dietary restrictions for this event."
         }
-        console.log(inputVegan.current.checked);
-        console.log(inputVegetarian.current.checked);
-        console.log(inputVegetarian);
-        console.log(inputVegan);
-        console.log(dietaryRestrictions);
+        
         return JSON.stringify(dietaryRestrictions);
     };
     
@@ -95,6 +91,8 @@ const AddEvent = (props) => {
         setRestrictions( ...restrictions, value)
     }
 
+    
+
     async function postEvent(e) {
         e.preventDefault();
         setEventData( { ...eventData, [restrictions]: getDietaryRestrictions() } )
@@ -102,6 +100,7 @@ const AddEvent = (props) => {
         console.log(restrictions);
         // const restrictions = getDietaryRestrictions();
         const apiResult = await API.post('/api/event/create', eventData);
+        console.log(apiResult);
                   
         if( apiResult.error ){
             dispatch( { do: 'setMessage', type: 'danger', message: apiResult.error } );
