@@ -10,7 +10,9 @@ const uuid = require( 'uuid' )
 const orm = require('./app/orm')
 const login = require('./app/models/loginModel')
 const UserModel = require('./app/models/userModel')
+const EventModel = require('./app/models/eventModel')
 const user = new UserModel()
+const event = new EventModel()
 const bcrypt = require( 'bcrypt' );
 
 
@@ -33,7 +35,7 @@ app.use( express.json() );
 app.use(logger('dev'));
 
 const API_URL = process.env.NODE_ENV === 'production'
-   ? '' : `http://localhost:${PORT}`      // TODO add prod url once ready
+   ? 'https://friendlyforks.herokuapp.com/' : `http://localhost:${PORT}`      // TODO add prod url once ready
 
 // session checking middleware
 async function needSession(req, res, next){
@@ -108,7 +110,6 @@ app.post('/api/user/save', async function( req,res ){
   res.send( saveResult )
 })
 
-
 app.get('/api/user/session', needSession, async function( req,res ){
   const session = req.headers.session
   // console.log( '[POST: /api/user/session] userSession: ', session )
@@ -132,6 +133,14 @@ app.get('/api/media', async function (req, res) {
   const mediaList = await orm.getMedia()
   res.send({ status: true, mediaList })
 })
+
+app.post('/api/event/create', async function( req,res ){
+  const eventData = req.body
+  console.log( '[POST: /api/event/create] eventData: ', eventData )
+  const insertResult = await event.addEvent( eventData )
+  res.send( insertResult )
+})
+
 
 // Send every request to the React app
 // Define any API routes before this runs
