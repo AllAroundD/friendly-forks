@@ -1,23 +1,9 @@
 import API from './API';
 import  CheckBox  from './Checkbox';
 import React, { useEffect, useRef, useState } from "react"
-const [eventData, setEventData] = useState({ eventDate: "", availableSeats: "", restrictions: "", eventNotes: "" });
-
 
 const AddEvent = (props) => {
-    const inputDateTime = useRef()
-    const inputGuestNumber = useRef()
-    // const inputVegetarian = useRef()
-    // const inputPescatarian = useRef()
-    // const inputVegan = useRef()
-    // const inputHalal = useRef()
-    // const inputKosher = useRef()
-    // const inputGF = useRef()
-    // const inputLI = useRef()
-    // const inputAllergies = useRef()  
-    const inputNotes = useRef()
-
-    constructor(props) {
+    constructor(props)       
         this.state = {
             restrictions: [
                 {id: 1, value: "Vegetarian", isChecked: false},
@@ -30,7 +16,7 @@ const AddEvent = (props) => {
                 {id: 8, value: "Allergies", isChecked: false}
             ]
         }
-    }
+    
 
     async function handleCheckboxes(event) {
         let restrictions = this.state.restrictions
@@ -40,6 +26,19 @@ const AddEvent = (props) => {
         })
         this.setState({restrictions: restrictions})
     }
+    
+    const [eventData, setEventData] = useState({ eventDate: "", availableSeats: "", restrictions: "", eventNotes: "" });
+    const inputDateTime = useRef()
+    const inputGuestNumber = useRef()
+    // const inputVegetarian = useRef()
+    // const inputPescatarian = useRef()
+    // const inputVegan = useRef()
+    // const inputHalal = useRef()
+    // const inputKosher = useRef()
+    // const inputGF = useRef()
+    // const inputLI = useRef()
+    // const inputAllergies = useRef()  
+    const inputNotes = useRef()
 
     // const checkBox = this.state.restrictions.map((restrictions) => {
     //     return (<li><input key={props.id} onClick={props.handleCheckChieldElement} type="checkbox" checked={props.isChecked} value={props.value} /> {props.value}</li>);
@@ -69,7 +68,7 @@ const AddEvent = (props) => {
     
     function handleInputChange( e ){
         const { id, value } = e.target 
-        setEventData( { ...eventData, [id]: value } )
+        setEventData( { ...eventData, [id]: value } );
     }
 
     // async function postEvent(e) {
