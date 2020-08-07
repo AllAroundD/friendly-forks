@@ -3,7 +3,7 @@
 ### Description
 This application was designed using React and SQL for the purpose of providing a platform in which users may create events and request attendance in order to foster an inclusive, shared community. The events created encourage individuals to take part in a shared experience of community exchange by means of hosting and attending a meal voluntarily. This application intends to appeal to individual users who wish to broaden their extent of cultural experience and take part in the pay-it-forward movement. 
 
-![alt text](client/src/public/assets/img/FriendlyForks.png)
+![alt text](https://github.com/AllAroundD/friendly-forks/blob/master/client/src/public/assets/img/FriendlyForks.PNG?raw=true)
 
 ### Table of Contents
 - [Installation](#Installation) 
@@ -61,13 +61,12 @@ Alternatively, you can access the deployed application at: https://friendlyforks
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
 ### Contributors
-**Shayanne Samarasinghe:** https://github.com/ShayanneSamarasinghe
-**Doug Moore:** https://github.com/AllAroundD
-**Christine Clemens:** https://github.com/ChristineClemens
-**Saquib Ahmed:** https://github.com/SaquibCA
-If you would like to become a contributor, please contact me at the email address specified below!
+**Shayanne Samarasinghe:** https://github.com/ShayanneSamarasinghe                
+**Doug Moore:** https://github.com/AllAroundD                   
+**Christine Clemens:** https://github.com/ChristineClemens                    
+**Saquib Ahmed:** https://github.com/SaquibCA                       
 
 **This project was created by (c) 2020 Virtual Reactors.**     
 
-**GitHub Repository:** https://github.com/ChristineClemens/EmployeeDirectory          
-**Deployed Application:** https://fast-plains-24759.herokuapp.com/         
+**GitHub Repository:** https://github.com/AllAroundD/friendly-forks     
+**Deployed Application:** https://friendlyforks.herokuapp.com/        
