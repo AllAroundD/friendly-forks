@@ -15,6 +15,7 @@ function NavBar() {
     const [ globalData, dispatch ] = useGlobalStore();
 
     const location = useLocation();
+    // eslint-disable-next-line
     const style = {
         logo: { width: '64px', height: '64px' }
     }
@@ -86,18 +87,10 @@ function NavBar() {
     document.getElementById("myOverlay").style.display = "none";
     }
 
-
-      
-
-
-
     function toggleMenu(){
         setShowMenu(!showMenu)
     }
-    
 
-
-  
 
     return (
     <div>
@@ -142,11 +135,7 @@ function NavBar() {
                 {globalData.message}
             </div>
         </div>
-                 
-
     </div>
-
-
     );
 }
 

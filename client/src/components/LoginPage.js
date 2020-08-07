@@ -56,9 +56,7 @@ function LoginPage(){
             return
         }
 
-        console.log(`[loginUser] before /api/user/login (userData)`, userData )
         const apiResult = await API.post( '/api/user/login', userData );
-        // console.log('user is logging in...')     
         if( apiResult.error ){
             dispatch( { do: 'setMessage', type: 'danger', message: apiResult.error } );
             // clear any session
@@ -72,7 +70,7 @@ function LoginPage(){
 
     return (
         <div>
-            { globalData.loggedIn ? <Redirect to='/landing' /> : '' }       {/* added landing */} {/*//TODO set page to landing page */}
+            { globalData.loggedIn ? <Redirect to='/' /> : '' }       {/* added landing */} {/*//TODO set page to landing page */}
             <h1 className="loginTitle" style={{marginTop: '80px'}}>Login</h1>
 
             <div class="container">
