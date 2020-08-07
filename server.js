@@ -155,16 +155,3 @@ app.get("*", function (req, res) {
 app.listen(PORT, function () {
   console.log(`🌎 ==> API server now on port ${PORT}!`)
 })
-
-// just for testing
-// const bcrypt = require( 'bcrypt' );
-// const saltRounds = 10;
-// let passwordHash = '';
-
-// async function pwdTest( password ){
-  
-// passwordHash = await bcrypt.hash(password, saltRounds);
-// console.log( `[addTest] (hash=${passwordHash})`);
-// }
-
-// pwdTest('testing123')
