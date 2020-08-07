@@ -32,7 +32,7 @@ function App() {
                         <Route exact path="/logout" component={LogoutPage} />
                     </div>
 
-                    <Footer />
+                   
                 </div>
                 </div>
             </Router>

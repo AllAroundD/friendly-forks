@@ -178,3 +178,164 @@
   line-height: 1.4;
   word-spacing: 100vw;
 }
+
+.navTAB{
+  margin-bottom: 20px; 
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 28px
+}
+
+.aboutTitle{
+  padding-top: 70px;
+  font-family: 'Josefin Sans', sans-serif;
+  /* font-size: 28px; */
+  padding-left:32px
+
+}
+
+.Footer{
+  padding-top:360px;
+  font-family: 'Josefin Sans', sans-serif;
+  
+}
+
+.profilepageTitle{
+  padding-top: 70px;
+  font-family: 'Josefin Sans', sans-serif;
+  /* font-size: 28px; */
+  padding-left:32px;
+  
+}
+
+.yourFirstLast{
+  padding-top:40px;
+  padding-bottom:25px;
+  font-family: 'Josefin Sans', sans-serif;
+  
+
+}
+
+.yourEmail{
+  padding-bottom:25px;
+  font-family: 'Josefin Sans', sans-serif;
+  
+
+}
+
+.yourAddress{
+  padding-bottom:25px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.yourLocation{
+  padding-bottom:25px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.saveButton{
+  padding-top: 25px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.yourNotes{
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+.aboutBlurb{
+  padding-top: 25px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 25px
+}
+
+.loginTitle{
+  padding-top: 35px;
+  font-family: 'Josefin Sans', sans-serif;
+  /* font-size: 28px; */
+  padding-left:40px;
+  
+
+}
+
+.loginButton{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  padding-left:40px;
+
+}
+
+.rememberMeBox{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  padding-left:40px;
+
+}
+
+.registerButton{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  padding-left:40px;
+
+}
+
+#userNotes{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#userLocation{
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+
+#userAddress{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+
+#userPassword{
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+#userEmail{
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+#lastName{
+  font-family: 'Josefin Sans', sans-serif;
+
+}
+
+#firstName{
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.registersaveButton{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+
+}
+
+.alreadyRegister{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+
+}
+
+.registrationTitle{
+  padding-top: 60px;
+  font-family: 'Josefin Sans', sans-serif;
+  /* font-size: 28px; */
+  padding-left:40px;
+  
+
+}
+
+
+
+
+
+
+
+
