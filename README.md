@@ -65,7 +65,6 @@ Alternatively, you can access the deployed application at: https://friendlyforks
 **Doug Moore:** https://github.com/AllAroundD                   
 **Christine Clemens:** https://github.com/ChristineClemens                    
 **Saquib Ahmed:** https://github.com/SaquibCA                       
-If you would like to become a contributor, please contact me at the email address specified below!
 
 **This project was created by (c) 2020 Virtual Reactors.**     
 
