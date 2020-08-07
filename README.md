@@ -1,4 +1,4 @@
-# EmployeeDirectory
+# Friendly Forks 
 
 ### Description
 This application was designed using React and SQL for the purpose of providing a platform in which users may create events and request attendance in order to foster an inclusive, shared community. The events created encourage individuals to take part in a shared experience of community exchange by means of hosting and attending a meal voluntarily. This application intends to appeal to individual users who wish to broaden their extent of cultural experience and take part in the pay-it-forward movement. 
