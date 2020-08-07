@@ -332,6 +332,68 @@
 
 }
 
+.aboutHome{
+  padding-top: 75px;
+  font-family: 'Josefin Sans', sans-serif;
+  padding-left:45px;
+
+}
+
+.Question{
+  padding-top: 35px;
+  font-family: 'Josefin Sans', sans-serif;
+  padding-left:45px;
+
+
+}
+
+.Answer{
+  font-family: 'Josefin Sans', sans-serif;
+  padding-left:45px;
+  font-size:18px;
+
+}
+
+
+.registerHome{
+  font-family: 'Josefin Sans', sans-serif;
+  color: blue;
+  padding-top: 30px;
+  padding-left:45px;
+  padding-bottom: 30px;
+  font-size: 20px;
+  
+
+}
+
+.loginHome{
+  font-family: 'Josefin Sans', sans-serif;
+  color: blue;
+  padding-bottom: 30px;
+  font-size: 20px;
+
+}
+
+.TechLogo{
+  width:70px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 20px;
+
+}
+
+.TechLogo1{
+  width:70px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 20px;
+
+}
+
+
+
 
 
 

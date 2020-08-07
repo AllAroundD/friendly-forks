@@ -108,7 +108,7 @@ function NavBar() {
                 {/* <h2 className="w3-padding-12"><br />Friendly<br />Forks<br /></h2> */}
             </div>
             <div className="w3-bar-block navBlock">
-                <a href="#" onClick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB">Home</a> 
+                <a href="/" onClick="closeSidebar()" className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB">Home</a> 
                 <a href="/events" onClick= {closeSidebar} className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB">Events</a> 
                 { localStorage.session ? 
                 <a href="/profile" onClick={closeSidebar} className="w3-bar-item w3-button w3-hover-white d-flex justify-content-center navTAB">Profile</a>
