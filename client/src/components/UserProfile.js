@@ -37,8 +37,6 @@ function UserProfile() {
     // let userData
     // at startup we initialize a few things
     useEffect( async function(){
-
-        //TODO move to function and then call function, then call function at the end of submit
         userData = await getUser(localStorage.session)
         // setValues(userData[0])
         console.log('[UserProfile] userData ', userData[0])

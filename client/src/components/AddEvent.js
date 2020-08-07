@@ -7,7 +7,26 @@ import React, { useEffect, useRef, useState } from "react"
 const AddEvent = (props) => {
     // eslint-disable-next-line
     const [ globalData, dispatch ] = useGlobalStore();
-    const [eventData, setEventData] = useState({ eventDate: "", availableSeats: "", restrictions: "", eventNotes: "" });
+    let [ userData, setUserData ] = useState({})
+    
+    async function getUser( session ){
+        const apiResult = await API.get( '/api/user/session', session )
+        console.log('[getUser] ', apiResult)
+        return apiResult
+    }
+
+    useEffect( async function(){
+        userData = await getUser(localStorage.session)
+        console.log('userData', userData)
+        // setValues(userData[0])
+        console.log('[UserProfile] userData ', userData[0].id)
+        localStorage.id = userData[0].id
+
+    }, [] )
+
+
+
+    const [eventData, setEventData] = useState({ eventDate: "", availableSeats: "", eventNotes: "", restrictions: "", hostID: localStorage.id});
     const [ isEventCreated, setIsEventCreated ] = useState( false );
     const [ restrictions, setRestrictions ] = useState([])
     const inputDateTime = useRef()
@@ -21,7 +40,6 @@ const AddEvent = (props) => {
     const inputLI = useRef()
     const inputAllergies = useRef()  
     const inputNotes = useRef()
-
 
     function handleCheckboxes( event) {
         let restrictions = this.state.restrictions
@@ -49,7 +67,7 @@ const AddEvent = (props) => {
     //     return (<li><input key={props.id} onClick={props.handleCheckChieldElement} type="checkbox" checked={props.isChecked} value={props.value} /> {props.value}</li>);
 
     async function getDietaryRestrictions() {
-        const dietaryRestrictions = [];
+        let dietaryRestrictions = [];
         if (inputVegetarian.current.checked) {
             dietaryRestrictions.push("Vegetarian");
         }
@@ -95,9 +113,10 @@ const AddEvent = (props) => {
         setRestrictions( ...restrictions, value)
     }
 
+    let hostID = localStorage.id
     async function postEvent(e) {
         e.preventDefault();
-        setEventData( { ...eventData, [restrictions]: getDietaryRestrictions() } )
+        setEventData( { ...eventData, [restrictions]: getDietaryRestrictions(), hostID } )
         console.log(eventData);
         console.log(restrictions);
         // const restrictions = getDietaryRestrictions();
