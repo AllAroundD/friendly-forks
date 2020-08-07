@@ -13,6 +13,7 @@ function Events (props) {
      
     useEffect( async function(){
         eventData = await displayEvents()
+        console.log(eventData)
         setEventData (eventData[0])
     }, [] )
 
@@ -22,10 +23,10 @@ function Events (props) {
 
     // });
 
-    let events = displayEvents();
+    // let events = displayEvents();
     return (
         <div>
-            {props.eventData.map(eventData => <EventBox {...eventData} />)}
+            {/* {eventData.map(event => console.log(event))} */}
             
         </div>
     )
