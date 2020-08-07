@@ -126,7 +126,6 @@ function NavBar() {
         </nav>
 
         {/* Adjustment for smaller screens */}
-
         <header className="w3-container w3-top w3-hide-large w3-light-green w3-xlarge w3-padding">
         <a href="javascript:void(0)" className="w3-button w3-light-green w3-margin-right myHamburger" onClick= {toggleMenu}  id= "myHamburger" >☰</a>
         {/* <span>Friendly Forks</span> */}

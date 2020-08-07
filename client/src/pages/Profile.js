@@ -7,7 +7,7 @@ function Profile () {
         <div>
              <h1 className="profilepageTitle">Your Profile Page</h1>
             <UserProfile />
-            {/* <AddEvent /> */}
+            <AddEvent />
         </div>
     )
 }
